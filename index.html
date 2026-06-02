@@ -51,7 +51,6 @@
     letter-spacing: 2px;
   }
 
-  /* টেলিগ্রাম সেকশন স্টাইল */
   .telegram-join-box {
     background: rgba(0, 136, 204, 0.1);
     border: 1px solid #0088cc;
@@ -119,9 +118,7 @@
   input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
   input[type=number] { -moz-appearance: textfield; }
   input[type="file"] { background: rgba(11, 12, 16, 0.9); border: 1px dashed #45f3ff; cursor: pointer; padding: 8px; }
-  .file-note { font-size: 11px; color: #ffaa00; margin-top: 4px; }
 
-  /* টিক বক্স সেকশন স্টাইল */
   .rules-checkbox-container {
     background: rgba(20, 20, 20, 0.8);
     border: 1px solid #ff0055;
@@ -153,7 +150,6 @@
   .btn-submit:hover { background: linear-gradient(45deg, #45f3ff, #ff0055); color: #fff; box-shadow: 0 0 25px #ff0055; }
   ::placeholder { color: #66fcf1; opacity: 0.4; }
 
-  /* কন্ট্যাক্ট সাপোর্ট সেকশন স্টাইল */
   .contact-support-container {
     text-align: center;
     margin-top: 25px;
@@ -185,26 +181,20 @@
   .wa-svg { fill: #25D366; filter: drop-shadow(0 0 4px #25D366); }
   .mail-svg { fill: #EA4335; filter: drop-shadow(0 0 4px #EA4335); }
 
-  /* হোয়াটসঅ্যাপ অপশন পপ-আপ মডাল */
   .wa-modal {
     display: none;
     position: fixed;
     z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    left: 0; top: 0; width: 100%; height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    align-items: center;
-    justify-content: center;
+    align-items: center; justify-content: center;
   }
   .wa-modal-content {
     background: #12161f;
     border: 2px solid #25D366;
     border-radius: 12px;
     padding: 25px;
-    width: 85%;
-    max-width: 340px;
+    width: 85%; max-width: 340px;
     text-align: center;
     box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
     position: relative;
@@ -214,31 +204,36 @@
   .wa-modal-title { color: #25D366; font-size: 16px; font-weight: bold; margin-bottom: 15px; text-transform: uppercase; }
   .wa-num-btn {
     display: block;
-    background: #1f2833;
-    color: #fff;
+    background: #1f2833; color: #fff;
     border: 1px solid #45f3ff;
-    padding: 12px;
-    margin-bottom: 12px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    transition: 0.3s;
+    padding: 12px; margin-bottom: 12px;
+    border-radius: 6px; text-decoration: none;
+    font-weight: bold; font-size: 14px; transition: 0.3s;
   }
   .wa-num-btn:hover { background: #25D366; color: #000; border-color: #25D366; box-shadow: 0 0 10px #25D366; }
   .wa-close-btn {
-    background: #ff0055;
-    color: #fff;
-    border: none;
-    padding: 6px 15px;
-    border-radius: 4px;
-    font-size: 12px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 5px;
+    background: #ff0055; color: #fff; border: none;
+    padding: 6px 15px; border-radius: 4px;
+    font-size: 12px; cursor: pointer; font-weight: bold; margin-top: 5px;
   }
 
-  /* পিডিএফ হিডেন টেমপ্লেট স্টাইল */
+  .submit-loading {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    color: #45f3ff; font-size: 20px; font-weight: bold;
+    align-items: center; justify-content: center; flex-direction: column;
+  }
+  .spinner {
+    border: 4px solid rgba(255,255,255,0.1);
+    width: 50px; height: 50px; border-radius: 50%;
+    border-left-color: #ff0055;
+    animation: spin 1s linear infinite; margin-bottom: 15px;
+  }
+  @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
   #pdf-template { display: none; background: #ffffff; color: #000000; padding: 30px; font-family: Arial, sans-serif; }
   .pdf-header { text-align: center; border-bottom: 3px double #ff0055; padding-bottom: 15px; margin-bottom: 20px; }
   .pdf-logo { max-width: 120px; border-radius: 50%; }
@@ -248,13 +243,15 @@
   .pdf-table th, .pdf-table td { border: 1px solid #ddd; padding: 10px; text-align: left; }
   .pdf-table th { background-color: #f2f2f2; color: #ff0055; }
   .pdf-ss-img { max-width: 130px; max-height: 130px; border: 1px solid #ccc; border-radius: 4px; display: block; margin-top: 5px; }
-  .pdf-rules-box { border: 1px solid #ff0055; padding: 12px; background: #fff5f7; border-radius: 6px; margin-top: 20px; }
-  .pdf-rules-title { color: #ff0055; font-weight: bold; font-size: 14px; margin-bottom: 8px; text-transform: uppercase; }
-  .pdf-rule-item { font-size: 11px; color: #333; margin-bottom: 6px; line-height: 1.4; }
   .pdf-footer-support { text-align: center; margin-top: 25px; font-size: 11px; color: #555; border-top: 1px solid #ddd; padding-top: 10px; }
 </style>
 </head>
 <body>
+
+<div id="loadingOverlay" class="submit-loading">
+  <div class="spinner"></div>
+  <div id="loadingText">Processing Images & Submitting... Please Wait</div>
+</div>
 
 <div class="container">
   <div class="logo-container">
@@ -266,7 +263,7 @@
 
   <div class="telegram-join-box">
     <p>Join our Telegram for tournament payment & tournament schedule,<br><span>otherwise you will be disqualified.</span></p>
-    <a href="https://t.me/s/dfftpresentedbyunrealdevil" target="_blank" class="tg-logo-link" title="Click to Join Telegram Channel">
+    <a href="https://telegram.me/dfftpresentedbyunrealdevil" target="_blank" class="tg-logo-link">
       <svg viewBox="0 0 24 24">
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.99 8.22l-1.77 8.35c-.13.59-.48.74-.98.46l-2.71-2-1.31 1.26c-.14.14-.27.27-.42.27l.19-2.7 4.92-4.45c.21-.19-.05-.3-.33-.11L5.95 14.15l-2.62-.82c-.57-.18-.58-.57.12-.85l10.24-3.95c.47-.17.89.11.7.9l.6 2.79z"></path>
       </svg>
@@ -288,62 +285,40 @@
     </div>
 
     <div class="section-title">Player 1 (Leader / IGL)</div>
-    <div class="form-group">
-      <label class="required-label">In-Game Name:</label>
-      <input type="text" id="p1Name" name="P1_IGN" required>
-    </div>
-    <div class="form-group">
-      <label class="required-label">Game UID:</label>
-      <input type="number" inputmode="numeric" id="p1Uid" name="P1_UID" placeholder="Enter UID" required>
-    </div>
-    <div class="form-group">
-      <label class="required-label">Screenshot:</label>
-      <input type="file" id="p1SS" name="P1_SS" class="file-input" accept="image/*" required>
-      <div class="file-note">* Max 1 MB</div>
-    </div>
+    <div class="form-group"><label class="required-label">In-Game Name:</label><input type="text" id="p1Name" name="P1_IGN" required></div>
+    <div class="form-group"><label class="required-label">Game UID:</label><input type="number" inputmode="numeric" id="p1Uid" name="P1_UID" required></div>
+    <div class="form-group"><label class="required-label">Screenshot:</label><input type="file" id="p1SS" accept="image/*" required></div>
 
     <div class="section-title">Player 2</div>
     <div class="form-group"><label class="required-label">IGN:</label><input type="text" id="p2Name" name="P2_IGN" required></div>
-    <div class="form-group"><label class="required-label">UID:</label><input type="number" inputmode="numeric" id="p2Uid" name="P2_UID" placeholder="Enter UID" required></div>
-    <div class="form-group"><label class="required-label">Screenshot:</label><input type="file" id="p2SS" name="P2_SS" class="file-input" accept="image/*" required></div>
+    <div class="form-group"><label class="required-label">UID:</label><input type="number" inputmode="numeric" id="p2Uid" name="P2_UID" required></div>
+    <div class="form-group"><label class="required-label">Screenshot:</label><input type="file" id="p2SS" accept="image/*" required></div>
 
     <div class="section-title">Player 3</div>
     <div class="form-group"><label class="required-label">IGN:</label><input type="text" id="p3Name" name="P3_IGN" required></div>
-    <div class="form-group"><label class="required-label">UID:</label><input type="number" inputmode="numeric" id="p3Uid" name="P3_UID" placeholder="Enter UID" required></div>
-    <div class="form-group"><label class="required-label">Screenshot:</label><input type="file" id="p3SS" name="P3_SS" class="file-input" accept="image/*" required></div>
+    <div class="form-group"><label class="required-label">UID:</label><input type="number" inputmode="numeric" id="p3Uid" name="P3_UID" required></div>
+    <div class="form-group"><label class="required-label">Screenshot:</label><input type="file" id="p3SS" accept="image/*" required></div>
 
     <div class="section-title">Player 4</div>
     <div class="form-group"><label class="required-label">IGN:</label><input type="text" id="p4Name" name="P4_IGN" required></div>
-    <div class="form-group"><label class="required-label">UID:</label><input type="number" inputmode="numeric" id="p4Uid" name="P4_UID" placeholder="Enter UID" required></div>
-    <div class="form-group"><label class="required-label">Screenshot:</label><input type="file" id="p4SS" name="P4_SS" class="file-input" accept="image/*" required></div>
+    <div class="form-group"><label class="required-label">UID:</label><input type="number" inputmode="numeric" id="p4Uid" name="P4_UID" required></div>
+    <div class="form-group"><label class="required-label">Screenshot:</label><input type="file" id="p4SS" accept="image/*" required></div>
 
     <div class="section-title">Player 5 (Sub)</div>
     <div class="form-group"><label>IGN:</label><input type="text" id="p5Name" name="P5_IGN"></div>
-    <div class="form-group"><label>UID:</label><input type="number" inputmode="numeric" id="p5Uid" name="P5_UID" placeholder="Enter UID"></div>
-    <div class="form-group"><label>Screenshot:</label><input type="file" id="p5SS" name="P5_SS" class="file-input" accept="image/*"></div>
+    <div class="form-group"><label>UID:</label><input type="number" inputmode="numeric" id="p5Uid" name="P5_UID"></div>
+    <div class="form-group"><label>Screenshot:</label><input type="file" id="p5SS" accept="image/*"></div>
 
     <div class="section-title">Player 6 (Sub)</div>
     <div class="form-group"><label>IGN:</label><input type="text" id="p6Name" name="P6_IGN"></div>
-    <div class="form-group"><label>UID:</label><input type="number" inputmode="numeric" id="p6Uid" name="P6_UID" placeholder="Enter UID"></div>
-    <div class="form-group"><label>Screenshot:</label><input type="file" id="p6SS" name="P6_SS" class="file-input" accept="image/*"></div>
+    <div class="form-group"><label>UID:</label><input type="number" inputmode="numeric" id="p6Uid" name="P6_UID"></div>
+    <div class="form-group"><label>Screenshot:</label><input type="file" id="p6SS" accept="image/*"></div>
 
     <div class="rules-checkbox-container">
-      <div class="checkbox-group">
-        <input type="checkbox" id="rule1" required>
-        <label for="rule1" class="checkbox-text">1. I will pay the Tournament Entry Fees INR 50 when I will be told to give, otherwise I can't join the tournament match.</label>
-      </div>
-      <div class="checkbox-group">
-        <input type="checkbox" id="rule2" required>
-        <label for="rule2" class="checkbox-text">2. I and my Teammates will have the same UID during the match, otherwise Host will kick me out from the match and I can't appeal for judgement or any refund.</label>
-      </div>
-      <div class="checkbox-group">
-        <input type="checkbox" id="rule3" required>
-        <label for="rule3" class="checkbox-text">3. I hereby swear that I and my Teammates will not use any type of cheats, glitches during the matches otherwise we will be kicked out from the whole tournament and we can't appeal for any judgement or refund of the tournament fees.</label>
-      </div>
-      <div class="checkbox-group">
-        <input type="checkbox" id="rule4" required>
-        <label for="rule4" class="checkbox-text">4. I hereby confirm that if we use any glitch, hacks or any type of cheat and we won the tournament, and if organiser found us guilty then we can't appeal for the prize and any refund of tournament fees.</label>
-      </div>
+      <div class="checkbox-group"><input type="checkbox" id="rule1" required><label for="rule1" class="checkbox-text">1. I will do the Tournament Entry Fees Rs.40 when I will be told to give, otherwise I can't join the tournament match.</label></div>
+      <div class="checkbox-group"><input type="checkbox" id="rule2" required><label for="rule2" class="checkbox-text">2. I and my Teammates will have the same UID during the match, otherwise Host will kick me out from the match.</label></div>
+      <div class="checkbox-group"><input type="checkbox" id="rule3" required><label for="rule3" class="checkbox-text">3. I hereby swear that I and my Teammates will not use any type of cheats/glitches.</label></div>
+      <div class="checkbox-group"><input type="checkbox" id="rule4" required><label for="rule4" class="checkbox-text">4. I hereby confirm that if we use hacks and win, we will be disqualified without refund.</label></div>
     </div>
 
     <button type="submit" class="btn-submit">Submit Registration</button>
@@ -352,17 +327,8 @@
   <div class="contact-support-container">
     <p>Facing any problem? Contact us</p>
     <div class="support-icons-wrapper">
-      <button type="button" class="support-icon-btn" onclick="openWaModal()" title="Contact via WhatsApp">
-        <svg class="wa-svg" viewBox="0 0 24 24">
-          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.742.002-2.55-1-4.947-2.819-6.756-1.82-1.81-4.244-2.806-6.826-2.807-5.441 0-9.865 4.372-9.869 9.743-.002 1.748.476 3.454 1.385 4.965l-.973 3.553 3.639-.942zm11.233-6.68c-.114-.19-.418-.304-.874-.532-.456-.228-2.696-1.33-3.114-1.482-.418-.152-.722-.228-1.026.228-.304.456-1.178 1.482-1.444 1.786-.266.304-.532.342-.988.114-.456-.228-1.927-.71-3.67-2.264-1.356-1.21-2.272-2.705-2.538-3.16-.266-.456-.028-.703.2-.929.205-.205.456-.532.684-.798.228-.266.304-.456.456-.76.152-.304.076-.57-.038-.798-.114-.228-1.026-2.47-1.406-3.382-.369-.888-.744-.768-1.026-.782-.266-.014-.57-.014-.874-.014-.304 0-.798.114-1.216.57-.418.456-1.596 1.558-1.596 3.8 0 2.242 1.634 4.408 1.862 4.712.228.304 3.217 4.912 7.794 6.887 1.09.47 1.94.75 2.603.96.114.036.228.038.357.018.437-.066 1.344-.55 1.534-1.082.19-.532.19-1.064.133-1.158-.056-.096-.266-.152-.57-.304z"/>
-        </svg>
-      </button>
-
-      <a href="mailto:udjoy06@gmail.com?subject=DFFT%20Registration%20Help" class="support-icon-btn" title="Contact via Email">
-        <svg class="mail-svg" viewBox="0 0 24 24">
-          <path d="M24 4.5v15c0 .85-.65 1.5-1.5 1.5H21V7.39l-9 5.61-9-5.61V21H1.5C.65 21 0 20.35 0 19.5v-15c0-.85.65-1.5 1.5-1.5H3.4l8.6 5.37 8.6-5.37h1.9c.85 0 1.5.65 1.5 1.5z"/>
-        </svg>
-      </a>
+      <button type="button" class="support-icon-btn" onclick="openWaModal()"><svg class="wa-svg" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.742.002-2.55-1-4.947-2.819-6.756-1.82-1.81-4.244-2.806-6.826-2.807-5.441 0-9.865 4.372-9.869 9.743-.002 1.748.476 3.454 1.385 4.965l-.973 3.553 3.639-.942zm11.233-6.68c-.114-.19-.418-.304-.874-.532-.456-.228-2.696-1.33-3.114-1.482-.418-.152-.722-.228-1.026.228-.304.456-1.178 1.482-1.444 1.786-.266.304-.532.342-.988.114-.456-.228-1.927-.71-3.67-2.264-1.356-1.21-2.272-2.705-2.538-3.16-.266-.456-.028-.703.2-.929.205-.205.456-.532.684-.798.228-.266.304-.456.456-.76.152-.304.076-.57-.038-.798-.114-.228-1.026-2.47-1.406-3.382-.369-.888-.744-.768-1.026-.782-.266-.014-.57-.014-.874-.014-.304 0-.798.114-1.216.57-.418.456-1.596 1.558-1.596 3.8 0 2.242 1.634 4.408 1.862 4.712.228.304 3.217 4.912 7.794 6.887 1.09.47 1.94.75 2.603.96.114.036.228.038.357.018.437-.066 1.344-.55 1.534-1.082.19-.532.19-1.064.133-1.158-.056-.096-.266-.152-.57-.304z"/></svg></button>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=udjoy06@gmail.com&su=DFFT%20Registration" target="_blank" class="support-icon-btn"><svg class="mail-svg" viewBox="0 0 24 24"><path d="M24 4.5v15c0 .85-.65 1.5-1.5 1.5H21V7.39l-9 5.61-9-5.61V21H1.5C.65 21 0 20.35 0 19.5v-15c0-.85.65-1.5 1.5-1.5H3.4 l8.6 5.37 8.6-5.37h1.9c.85 0 1.5.65 1.5 1.5z"/></svg></a>
     </div>
   </div>
 </div>
@@ -370,169 +336,156 @@
 <div id="waModal" class="wa-modal">
   <div class="wa-modal-content">
     <div class="wa-modal-title">Select WhatsApp Support</div>
-    <a href="https://wa.me/919434020956" target="_blank" class="wa-num-btn">💬 Support 1 (+91 94340 20956)</a>
-    <a href="https://wa.me/916294979447" target="_blank" class="wa-num-btn">💬 Support 2 (+91 62949 79447)</a>
+    <a href="https://api.whatsapp.com/send?phone=919434020956" target="_blank" class="wa-num-btn">💬 Support 1 (+91 94340 20956)</a>
+    <a href="https://api.whatsapp.com/send?phone=916294979447" target="_blank" class="wa-num-btn">💬 Support 2 (+91 62949 79447)</a>
     <button type="button" class="wa-close-btn" onclick="closeWaModal()">Close</button>
   </div>
 </div>
 
 <div id="pdf-template">
   <div class="pdf-header">
-    <img src="logo.png" class="pdf-logo" alt="Logo">
+    <img src="logo.png" class="pdf-logo">
     <div class="pdf-title">Devil Free Fire Tournament</div>
     <div class="pdf-sub">Presented by UNREAL DEVIL</div>
-    <div style="font-size: 12px; color: #666; margin-top: 5px;">Official Registration Receipt</div>
   </div>
-  
   <table class="pdf-table">
-    <tr><th colspan="2">Team Details</th></tr>
     <tr><td><strong>Team Name:</strong></td><td id="pdfTeam"></td></tr>
     <tr><td><strong>WhatsApp Number:</strong></td><td id="pdfWhatsApp"></td></tr>
   </table>
-
   <table class="pdf-table">
-    <thead>
-      <tr>
-        <th style="width: 25%;">Player</th>
-        <th style="width: 45%;">In-Game Details</th>
-        <th style="width: 30%;">Account Screenshot</th>
-      </tr>
-    </thead>
-    <tbody id="pdfPlayersBody">
-    </tbody>
+    <thead><tr><th>Player</th><th>In-Game Details</th><th>Screenshot</th></tr></thead>
+    <tbody id="pdfPlayersBody"></tbody>
   </table>
-
-  <div class="pdf-rules-box">
-    <div class="pdf-rules-title">Accepted Rules & Regulations (Signed)</div>
-    <div class="pdf-rule-item"><strong>[✓] Rule 1:</strong> I will pay the Tournament Entry Fees INR 50 when I will be told to give... <span style="color: green; font-weight: bold;">[Accepted]</span></div>
-    <div class="pdf-rule-item"><strong>[✓] Rule 2:</strong> I and my Teammates will have the same UID during the match... <span style="color: green; font-weight: bold;">[Accepted]</span></div>
-    <div class="pdf-rule-item"><strong>[✓] Rule 3:</strong> I hereby swear that I and my Teammates will not use any type of cheats... <span style="color: green; font-weight: bold;">[Accepted]</span></div>
-    <div class="pdf-rule-item"><strong>[✓] Rule 4:</strong> I hereby confirm that if we use any glitch, hacks or cheat... <span style="color: green; font-weight: bold;">[Accepted]</span></div>
-  </div>
-
-  <div class="pdf-footer-support">
-    For any tournament support, contact on WhatsApp: +919434020956 / +916294979447 | Email: udjoy06@gmail.com
-  </div>
+  <div class="pdf-footer-support">Contact: +919434020956 | Email: udjoy06@gmail.com</div>
 </div>
 
 <script>
-  // হোয়াটসঅ্যাপ পপ-আপ কন্ট্রোল ফাংশন
   function openWaModal() { document.getElementById('waModal').style.display = 'flex'; }
   function closeWaModal() { document.getElementById('waModal').style.display = 'none'; }
-  // পপ-আপের বাইরে ক্লিক করলে বন্ধ হবে
-  window.onclick = function(event) {
-    const modal = document.getElementById('waModal');
-    if (event.target == modal) { modal.style.display = 'none'; }
+
+  // ছবি ছোট করার পারফেক্ট ফাংশন
+  function compressImage(file) {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (e) => {
+        const img = new Image();
+        img.src = e.target.result;
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          let width = img.width;
+          let height = img.height;
+          const max_size = 600; 
+          if (width > height) {
+            if (width > max_size) { height *= max_size / width; width = max_size; }
+          } else {
+            if (height > max_size) { width *= max_size / height; height = max_size; }
+          }
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+          canvas.toBlob((blob) => { resolve(blob); }, 'image/jpeg', 0.4);
+        };
+      };
+    });
   }
 
-  // ফাইল সাইজ চেক (১ এমবি লিমিট)
-  const fileInputs = document.querySelectorAll('.file-input');
-  fileInputs.forEach(input => {
-    input.addEventListener('change', function() {
-      if (this.files && this.files[0]) {
-        const fileSize = this.files[0].size / 1024 / 1024;
-        if (fileSize > 1) {
-          alert('Error: Maximum allowed size is 1 MB!');
-          this.value = '';
-        }
-      }
+  function readFileAsDataURL(blob) {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = (e) => resolve(e.target.result);
+      reader.readAsDataURL(blob);
     });
-  });
+  }
 
-  // ফর্ম সাবমিশন লজিক
   const form = document.getElementById('regForm');
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
+    
+    document.getElementById('loadingOverlay').style.display = 'flex';
+    document.getElementById('loadingText').innerText = "Processing Images... Please Wait";
 
-    const formData = new FormData(form);
-    await generatePdfTemplate();
+    const finalFormData = new FormData();
+    finalFormData.append('access_key', document.getElementsByName('access_key')[0].value);
+    finalFormData.append('Team_Name', document.getElementById('teamName').value);
+    finalFormData.append('IGL_WhatsApp', document.getElementById('iglWhatsApp').value);
 
-    // ১. Web3Forms-এ পাঠানো (ইমেইল)
+    document.getElementById('pdfTeam').innerText = document.getElementById('teamName').value;
+    document.getElementById('pdfWhatsApp').innerText = document.getElementById('iglWhatsApp').value;
+    const tbody = document.getElementById('pdfPlayersBody');
+    tbody.innerHTML = '';
+
+    for (let i = 1; i <= 6; i++) {
+      const nameEl = document.getElementById(`p${i}Name`);
+      const uidEl = document.getElementById(`p${i}Uid`);
+      const fileInput = document.getElementById(`p${i}SS`);
+
+      if (!nameEl || (i > 4 && !nameEl.value)) continue;
+
+      finalFormData.append(`P${i}_IGN`, nameEl.value);
+      finalFormData.append(`P${i}_UID`, uidEl.value);
+
+      let imgHtml = '<em>No Image</em>';
+
+      if (fileInput && fileInput.files && fileInput.files[0]) {
+        const compressedBlob = await compressImage(fileInput.files[0]);
+        finalFormData.append(`P${i}_SS`, compressedBlob, `p${i}_ss.jpg`);
+
+        const imgDataUrl = await readFileAsDataURL(compressedBlob);
+        imgHtml = `<img src="${imgDataUrl}" class="pdf-ss-img" />`;
+      }
+
+            const role = i === 1 ? 'Player 1 (IGL)' : (i > 4 ? `Player ${i} (Sub)` : `Player ${i}`);
+      tbody.innerHTML += `<tr><td><strong>${role}</strong></td><td>Name: ${nameEl.value}<br>UID: ${uidEl.value}</td><td>${imgHtml}</td></tr>`;
+    }
+
+    document.getElementById('loadingText').innerText = "Sending Data to Server...";
+
+    // Web3Forms সাবমিশন
     fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: formData
+        body: finalFormData
     })
     .then(res => {
         if(res.ok) {
-            sendToTelegram(formData);
+            // টেলিগ্রাম মেসেজ পাঠানো
+            const token = "8322263777:AAHfGKOIetCs2VWstnUTn1Y8Lw2ygtPH7zo";
+            const chat_id = "@dfftpresentedbyunrealdevil";
+            const teamText = document.getElementById('teamName').value;
+            const waText = document.getElementById('iglWhatsApp').value;
+            const text = `🔥 *New Registration!* 🔥\n\n🏆 *Team:* ${teamText}\n📱 *WhatsApp:* ${waText}\n\nFull Squad Data Sent to Email!`;
             
+            fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(text)}&parse_mode=Markdown`);
+
+            // পিডিএফ জেনারেট করা
             const element = document.getElementById('pdf-template');
             element.style.display = 'block'; 
             
             const opt = {
-              margin:       10,
-              filename:     (document.getElementById('teamName').value || 'DFFT') + '_Registration.pdf',
-              image:        { type: 'jpeg', quality: 0.98 },
-              html2canvas:  { scale: 2, useCORS: true },
-              jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+              margin: 10,
+              filename: teamText + '_Receipt.pdf',
+              image: { type: 'jpeg', quality: 0.95 },
+              html2canvas: { scale: 2, useCORS: true },
+              jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
 
             html2pdf().set(opt).from(element).save().then(() => {
                 element.style.display = 'none'; 
-                alert('Registration Successful! Your PDF Receipt is downloading.');
+                document.getElementById('loadingOverlay').style.display = 'none';
+                alert('Registration Successful! Your PDF Receipt has been downloaded.');
                 form.reset();
-                document.getElementById('pdfPlayersBody').innerHTML = ''; 
+                tbody.innerHTML = ''; 
             });
         } else {
-            alert('Something went wrong. Please try again.');
+            document.getElementById('loadingOverlay').style.display = 'none';
+            alert('Something went wrong with Web3Forms Server.');
         }
+    }).catch(err => {
+        document.getElementById('loadingOverlay').style.display = 'none';
+        alert('Network Error. Please try again.');
     });
   });
-
-  function readFileAsDataURL(file) {
-    return new Promise((resolve) => {
-      const reader = new FileReader();
-      reader.onload = (e) => resolve(e.target.result);
-      reader.readAsDataURL(file);
-    });
-  }
-
-  async function generatePdfTemplate() {
-    document.getElementById('pdfTeam').innerText = document.getElementById('teamName').value;
-    document.getElementById('pdfWhatsApp').innerText = document.getElementById('iglWhatsApp').value;
-
-    const tbody = document.getElementById('pdfPlayersBody');
-    tbody.innerHTML = ''; 
-
-    for (let i = 1; i <= 6; i++) {
-      const nameInput = document.getElementById(`p${i}Name`);
-      const uidInput = document.getElementById(`p${i}Uid`);
-      const fileInput = document.getElementById(`p${i}SS`);
-
-      if (i > 4 && (!nameInput || !nameInput.value)) continue;
-
-      if (nameInput && uidInput) {
-        let imgHtml = '<em>No image</em>';
-        if (fileInput && fileInput.files && fileInput.files[0]) {
-          const imgDataUrl = await readFileAsDataURL(fileInput.files[0]);
-          imgHtml = `<img src="${imgDataUrl}" class="pdf-ss-img" />`;
-        }
-
-        const role = i === 1 ? 'Player 1 (IGL)' : (i > 4 ? `Player ${i} (Sub)` : `Player ${i}`);
-        
-        const row = `
-          <tr>
-            <td><strong>${role}</strong></td>
-            <td>Name: ${nameInput.value}<br>UID: ${uidInput.value}</td>
-            <td>${imgHtml}</td>
-          </tr>
-        `;
-        tbody.innerHTML += row;
-      }
-    }
-  }
-
-  function sendToTelegram(data) {
-    const token = "8322263777:AAHfGKOIetCs2VWstnUTn1Y8Lw2ygtPH7zo";
-    const chat_id = "@dfftpresentedbyunrealdevil";
-    const team = data.get('Team_Name');
-    const whatsapp = data.get('IGL_WhatsApp');
-    
-    const text = `🔥 *New Registration!* 🔥\n\n🏆 *Team:* ${team}\n📱 *WhatsApp:* ${whatsapp}\n\nCheck your Email for full details, screenshots, and rules approval!`;
-    
-    fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(text)}&parse_mode=Markdown`);
-  }
 </script>
-
 </body>
 </html>
