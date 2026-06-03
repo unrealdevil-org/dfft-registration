@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DFFT Tournament Registration</title>
+    <title>DFFT Tournament Registration Panel</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -12,11 +12,11 @@
             --glow-color: #00f2fe;
             --secondary-glow: #4facfe;
             --bg-color: #060913;
-            --card-bg: rgba(10, 15, 30, 0.7);
+            --card-bg: rgba(10, 15, 30, 0.85); /* একটু গাড়ো করা হলো যাতে ব্যাকগ্রাউন্ডের ওপর লেখা স্পষ্ট হয় */
             --input-bg: rgba(5, 10, 25, 0.9);
             --text-color: #ffffff;
             --text-muted: #a0aec0;
-            --neon-green: #39ff14;
+            --neon-red: #ff0055;
         }
 
         * {
@@ -34,9 +34,12 @@
             flex-direction: column;
             align-items: center;
             overflow-x: hidden;
-            background-image: 
-                radial-gradient(at 10% 20%, rgba(0, 242, 254, 0.05) 0px, transparent 50%),
-                radial-gradient(at 90% 80%, rgba(79, 172, 254, 0.05) 0px, transparent 50%);
+            /* 🔽 এখানে তোমার bg.webp সেট করা হয়েছে */
+            background-image: url('bg.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
 
         .header-container {
@@ -49,18 +52,12 @@
             margin-top: 10px;
         }
 
-        .logo-text {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 26px;
-            font-weight: 700;
-            color: #fff;
-            text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--secondary-glow);
-            letter-spacing: 3px;
-        }
-
-        .social-buttons {
-            display: flex;
-            gap: 10px;
+        /* 🔽 লোগো ইমেজের জন্য নতুন CSS স্টাইল */
+        .site-logo {
+            height: 60px; /* তোমার প্রয়োজন মতো সাইজ ছোট-বড় করতে পারো */
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 8px var(--glow-color)); /* লোগোর চারপাশে হালকা নিয়ন গ্লো দেবে */
         }
 
         .telegram-btn {
@@ -79,31 +76,56 @@
             font-size: 11px;
         }
 
-        .whatsapp-btn {
-            background: linear-gradient(135deg, #25D366, #075E54);
-            color: white;
-            padding: 10px 18px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 11px;
-        }
-
-        .telegram-btn:hover, .whatsapp-btn:hover {
+        .telegram-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 25px rgba(0, 136, 204, 0.8);
         }
 
         .main-container {
             width: 100%;
             max-width: 800px;
             padding: 0 20px 40px 20px;
+        }
+
+        .alert-block {
+            background: rgba(255, 0, 85, 0.15);
+            border: 1px solid var(--neon-red);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            font-size: 15px;
+            line-height: 1.4;
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.1);
+        }
+
+        .alert-block strong {
+            color: var(--neon-red);
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .alert-block a {
+            color: #00f2fe;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .alert-block a:hover {
+            text-decoration: underline;
+        }
+
+        .support-block {
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid var(--glow-color);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .support-block strong {
+            color: var(--glow-color);
+            font-family: 'Orbitron', sans-serif;
         }
 
         .hero-block {
@@ -168,7 +190,10 @@
         }
 
         .input-group input[type="text"],
-        .input-group input[type="number"] {
+        .input-group input[type="number"],
+        .input-group input[type="tel"],
+        .input-group select,
+        .input-group textarea {
             background: var(--input-bg);
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 12px 16px;
@@ -179,45 +204,38 @@
             transition: all 0.3s ease;
         }
 
-        .input-group input:focus {
+        .input-group select option {
+            background: #0b0f19;
+            color: #fff;
+        }
+
+        .input-group textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
             outline: none;
             border-color: var(--glow-color);
             box-shadow: 0 0 12px rgba(0, 242, 254, 0.3);
         }
 
-        .player-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr auto;
-            gap: 15px;
-            align-items: flex-end;
-        }
-
-        .upload-link-btn {
-            background: rgba(0, 242, 254, 0.1);
-            border: 1px dashed var(--glow-color);
-            color: var(--glow-color);
-            padding: 11px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-family: 'Orbitron', sans-serif;
+        .char-count {
             font-size: 12px;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            color: var(--text-muted);
+            text-align: right;
         }
 
-        .upload-link-btn:hover {
-            background: var(--glow-color);
-            color: #000;
-            box-shadow: 0 0 15px var(--glow-color);
-            border-style: solid;
+        .form-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
         }
 
         .rules-container {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
             padding: 20px;
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -280,16 +298,6 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             width: 100%;
             margin-top: auto;
-            background: rgba(4, 7, 15, 0.9);
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .footer-container a {
-            color: var(--glow-color);
-            text-decoration: none;
-            font-weight: bold;
         }
 
         @media (max-width: 700px) {
@@ -298,15 +306,9 @@
                 gap: 12px;
                 text-align: center;
             }
-            .player-row {
+            .form-grid-2 {
                 grid-template-columns: 1fr;
-                gap: 10px;
-                border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
-                padding-bottom: 15px;
-            }
-            .upload-link-btn {
-                width: 100%;
-                justify-content: center;
+                gap: 12px;
             }
         }
     </style>
@@ -314,21 +316,30 @@
 <body>
 
     <div class="header-container">
-        <div class="logo-text">DFFT ESPORTS</div>
+        <img src="logo.jpg" class="site-logo" alt="DFFT Logo">
         <div class="social-buttons">
-            <a href="https://t.me/+fT0qY634_k0zMGFl" target="_blank" class="telegram-btn">
-                <i class="fab fa-telegram-plane"></i> TELEGRAM
-            </a>
-            <a href="https://chat.whatsapp.com/Gj3Hj7Xh8A72LKnz3Mpv9X" target="_blank" class="whatsapp-btn">
-                <i class="fab fa-whatsapp"></i> WHATSAPP
+            <a href="https://t.me/dfftpresentedbyunrealdevil" target="_blank" class="telegram-btn">
+                <i class="fab fa-telegram-plane"></i> JOIN TELEGRAM CHANNEL
             </a>
         </div>
     </div>
 
     <div class="main-container">
+        
+        <div class="alert-block">
+            <strong>CRITICAL NOTICE:</strong> You must join our official Telegram channel, otherwise you will be deprived of fee payment updates and all upcoming tournament details! Telegram Link: <a href="https://t.me/dfftpresentedbyunrealdevil" target="_blank">Join Channel Now</a>
+        </div>
+
+        <div class="support-block">
+            <strong>NEED ASSISTANCE?</strong> If you face any issues or need any help, feel free to contact us:<br>
+            <i class="fab fa-whatsapp" style="color:#25D366;"></i> +91 99325 36978 (WhatsApp Only) (Main Helper)<br>
+            <i class="fab fa-whatsapp" style="color:#25D366;"></i> +91 94340 20956 (WhatsApp Only)<br>
+            <i class="fas fa-envelope" style="color:var(--glow-color);"></i> Email: udjoy06@gmail.com
+        </div>
+
         <div class="hero-block">
             <h1>Squad Registration Portal</h1>
-            <p>Enter team stats below. Use the portal action buttons to attach screenshots safely before submit.</p>
+            <p>Fill out the strategic fields below carefully to lock your slot in the battlefield.</p>
         </div>
 
         <form class="registration-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfAEZeEM4hiKxer8TXR9mKUkQSHV21KA21aQiaTfJJDG28iaQ/formResponse" method="POST" id="dfftForm">
@@ -341,98 +352,175 @@
             </div>
 
             <div class="input-group">
+                <label>IGL Address Line * (Max 1000 words)</label>
+                <textarea name="entry.1691157121" maxlength="5000" placeholder="Enter complete home address metrics..." required></textarea>
+                <span class="char-count">Maximum 1000 words metrics window</span>
+            </div>
+
+            <div class="form-grid-2">
+                <div class="input-group">
+                    <label>Village / Town / City *</label>
+                    <input type="text" name="entry.668798934" placeholder="Enter Village/Town/City" required>
+                </div>
+                <div class="input-group">
+                    <label>Post Office *</label>
+                    <input type="text" name="entry.1989078652" placeholder="Enter Post Office" required>
+                </div>
+            </div>
+
+            <div class="form-grid-2">
+                <div class="input-group">
+                    <label>Police Station *</label>
+                    <input type="text" name="entry.457813589" placeholder="Enter Police Station" required>
+                </div>
+                <div class="input-group">
+                    <label>Block *</label>
+                    <input type="text" name="entry.254131568" placeholder="Enter Block name" required>
+                </div>
+            </div>
+
+            <div class="form-grid-2">
+                <div class="input-group">
+                    <label>District *</label>
+                    <input type="text" name="entry.65215769" placeholder="Enter District" required>
+                </div>
+                <div class="input-group">
+                    <label>Pincode *</label>
+                    <input type="tel" name="entry.589146342" pattern="[0-9]*" placeholder="Enter Pincode" required>
+                </div>
+            </div>
+
+            <div class="form-grid-2">
+                <div class="input-group">
+                    <label>Country *</label>
+                    <select name="entry.856942173" required>
+                        <option value="India">India</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>State *</label>
+                    <select name="entry.1458920155" required>
+                        <option value="" disabled selected>Select your State</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                        <option value="Ladakh">Ladakh</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Puducherry">Puducherry</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
                 <label>IGL WhatsApp Number *</label>
-                <input type="number" name="entry.454948792" placeholder="Enter active whatsapp number" required>
+                <input type="number" name="entry.454948792" placeholder="Enter active WhatsApp link line" required>
+            </div>
+
+            <div class="input-group">
+                <label>Entry Fee Payment System</label>
+                <input type="text" value="Join telegram channel: https://t.me/dfftpresentedbyunrealdevil" readonly style="background: rgba(0, 242, 254, 0.03); border-color: rgba(0,242,254,0.2); color: #fff; font-weight: bold; cursor: not-allowed;">
             </div>
 
             <div class="form-section-title"><i class="fas fa-user-shield"></i> Player 1 (Leader / IGL)</div>
-            <div class="player-row">
+            <div class="form-grid-2">
                 <div class="input-group">
                     <label>In-Game Name (IGN) *</label>
-                    <input type="text" name="entry.604724217" placeholder="P1 IGN" required>
+                    <input type="text" name="entry.1017362795" placeholder="P1 IGN" required>
                 </div>
                 <div class="input-group">
                     <label>Game UID *</label>
-                    <input type="text" name="entry.1017362795" placeholder="P1 UID" required>
+                    <input type="text" name="entry.839655787" placeholder="P1 UID" required>
                 </div>
-                <button type="button" class="upload-link-btn" onclick="openFormStorage()">
-                    <i class="fas fa-image"></i> SCREENSHOT *
-                </button>
             </div>
 
             <div class="form-section-title"><i class="fas fa-user"></i> Player 2</div>
-            <div class="player-row">
+            <div class="form-grid-2">
                 <div class="input-group">
                     <label>In-Game Name (IGN) *</label>
-                    <input type="text" name="entry.1691236109" placeholder="P2 IGN" required>
+                    <input type="text" name="entry.2064971207" placeholder="P2 IGN" required>
                 </div>
                 <div class="input-group">
                     <label>Game UID *</label>
-                    <input type="text" name="entry.839655787" placeholder="P2 UID" required>
+                    <input type="text" name="entry.1983053158" placeholder="P2 UID" required>
                 </div>
-                <button type="button" class="upload-link-btn" onclick="openFormStorage()">
-                    <i class="fas fa-image"></i> SCREENSHOT *
-                </button>
             </div>
 
             <div class="form-section-title"><i class="fas fa-user"></i> Player 3</div>
-            <div class="player-row">
+            <div class="form-grid-2">
                 <div class="input-group">
                     <label>In-Game Name (IGN) *</label>
-                    <input type="text" name="entry.2064971207" placeholder="P3 IGN" required>
+                    <input type="text" name="entry.86477815" placeholder="P3 IGN" required>
                 </div>
                 <div class="input-group">
                     <label>Game UID *</label>
-                    <input type="text" name="entry.1983053158" placeholder="P3 UID" required>
+                    <input type="text" name="entry.154332467" placeholder="P3 UID" required>
                 </div>
-                <button type="button" class="upload-link-btn" onclick="openFormStorage()">
-                    <i class="fas fa-image"></i> SCREENSHOT *
-                </button>
             </div>
 
             <div class="form-section-title"><i class="fas fa-user"></i> Player 4</div>
-            <div class="player-row">
+            <div class="form-grid-2">
                 <div class="input-group">
                     <label>In-Game Name (IGN) *</label>
-                    <input type="text" name="entry.86477815" placeholder="P4 IGN" required>
+                    <input type="text" name="entry.730248443" placeholder="P4 IGN" required>
                 </div>
                 <div class="input-group">
                     <label>Game UID *</label>
-                    <input type="text" name="entry.154332467" placeholder="P4 UID" required>
+                    <input type="text" name="entry.595670868" placeholder="P4 UID" required>
                 </div>
-                <button type="button" class="upload-link-btn" onclick="openFormStorage()">
-                    <i class="fas fa-image"></i> SCREENSHOT *
-                </button>
             </div>
 
             <div class="form-section-title"><i class="fas fa-user-plus"></i> Player 5 (Substitute)</div>
-            <div class="player-row">
+            <div class="form-grid-2">
                 <div class="input-group">
                     <label>In-Game Name (IGN)</label>
-                    <input type="text" name="entry.730248443" placeholder="P5 IGN (Optional)">
+                    <input type="text" name="entry.1804791338" placeholder="P5 IGN (Optional)">
                 </div>
                 <div class="input-group">
                     <label>Game UID</label>
-                    <input type="text" name="entry.595670868" placeholder="P5 UID (Optional)">
+                    <input type="text" name="entry.170685655" placeholder="P5 UID (Optional)">
                 </div>
-                <button type="button" class="upload-link-btn" onclick="openFormStorage()">
-                    <i class="fas fa-image"></i> SCREENSHOT
-                </button>
             </div>
 
             <div class="form-section-title"><i class="fas fa-user-plus"></i> Player 6 (Substitute)</div>
-            <div class="player-row">
+            <div class="form-grid-2">
                 <div class="input-group">
                     <label>In-Game Name (IGN)</label>
-                    <input type="text" name="entry.1804791338" placeholder="P6 IGN (Optional)">
+                    <input type="text" name="entry.11111" placeholder="P6 IGN (Optional)">
                 </div>
                 <div class="input-group">
                     <label>Game UID</label>
-                    <input type="text" name="entry.170685655" placeholder="P6 UID (Optional)">
+                    <input type="text" name="entry.22222" placeholder="P6 UID (Optional)">
                 </div>
-                <button type="button" class="upload-link-btn" onclick="openFormStorage()">
-                    <i class="fas fa-image"></i> SCREENSHOT
-                </button>
             </div>
 
             <div class="form-section-title"><i class="fas fa-gavel"></i> Tournament Regulations</div>
@@ -461,23 +549,11 @@
 
     <div class="footer-container">
         <p>&copy; 2026 DFFT ESPORTS. All Rights Reserved.</p>
-        <p>Facing issues? Contact <a href="https://t.me/+fT0qY634_k0zMGFl" target="_blank">DFFT Telegram Support</a> or Email us at <a href="mailto:dfftesports@gmail.com">dfftesports@gmail.com</a></p>
     </div>
 
     <script>
-        function openFormStorage() {
-            const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfAEZeEM4hiKxer8TXR9mKUkQSHV21KA21aQiaTfJJDG28iaQ/viewform";
-            const width = 550;
-            const height = 650;
-            const left = (screen.width / 2) - (width / 2);
-            const top = (screen.height / 2) - (height / 2);
-            
-            alert("🔒 Secure File Vault Opening!\n\nদয়া করে পপ-আপে খুলে যাওয়া ফর্মে আপনার স্ক্রিনশটটি আপলোড করে দিন, তারপর মূল পোর্টালে এসে বাকি ফর্মটি ফিলাপ করে Submit করুন।");
-            window.open(formUrl, "GoogleFormStorage", `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`);
-        }
-
         document.getElementById('dfftForm').addEventListener('submit', function() {
-            alert("🚀 Registration Data Dispatched Successfully!\n\nআপনার স্কোয়াডের টেক্সট ডেটা সরাসরি সফলভাবে সিস্টেমে লক হয়ে গেছে!");
+            alert("🚀 Registration Dispatched!\n\nYour squad metrics are processing securely to the database cloud systems!");
         });
     </script>
 </body>
