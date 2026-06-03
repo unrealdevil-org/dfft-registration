@@ -1,523 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DEVIL FREE FIRE TOURNAMENT REGISTRATION</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-<style>
-  body { 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('bg.webp') no-repeat center center fixed;
-    background-size: cover;
-    color: #c5c6c7;
-    padding: 20px; 
-    margin: 0;
-  }
-  .container { 
-    max-width: 650px; 
-    background: rgba(18, 22, 31, 0.9);
-    padding: 30px; 
-    margin: 20px auto; 
-    border-radius: 15px; 
-    box-shadow: 0px 0px 30px #ff0055;
-    border: 1px solid #45f3ff;
-    position: relative;
-  }
-  .logo-container { text-align: center; margin-bottom: 20px; }
-  .logo-container img {
-    max-width: 180px; 
-    height: auto;
-    border-radius: 50%;
-    border: 3px solid #45f3ff;
-    box-shadow: 0 0 15px #45f3ff;
-  }
-  h2 {
-    text-align: center;
-    color: #45f3ff;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-    font-size: 22px;
-    text-shadow: 0 0 10px #45f3ff;
-  }
-  .presented-by {
-    text-align: center;
-    color: #ff0055;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    font-size: 14px;
-    letter-spacing: 2px;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DFFT Tournament Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --glow-color: #00f2fe;
+            --secondary-glow: #4facfe;
+            --bg-color: #060913;
+            --card-bg: rgba(10, 15, 30, 0.8);
+            --text-color: #ffffff;
+            --text-muted: #a0aec0;
+        }
 
-  .telegram-join-box {
-    background: rgba(0, 136, 204, 0.1);
-    border: 1px solid #0088cc;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    margin-bottom: 30px;
-    box-shadow: 0 0 10px rgba(0, 136, 204, 0.2);
-  }
-  .telegram-join-box p {
-    color: #fff;
-    font-size: 14px;
-    font-weight: bold;
-    margin: 0 0 10px 0;
-    line-height: 1.4;
-  }
-  .telegram-join-box span { color: #ff3333; }
-  .tg-logo-link { display: inline-block; transition: transform 0.3s; text-decoration: none; }
-  .tg-logo-link:hover { transform: scale(1.1); }
-  .tg-logo-link svg {
-    width: 50px;
-    height: 50px;
-    fill: #0088cc;
-    filter: drop-shadow(0 0 5px #0088cc);
-    vertical-align: middle;
-  }
-  .tg-text-btn { display: block; margin-top: 8px; color: #45f3ff; font-size: 13px; text-decoration: underline; font-weight: bold; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-  .section-title {
-    color: #ff0055;
-    font-size: 18px;
-    border-bottom: 1px dashed #ff0055;
-    padding-bottom: 5px;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-  .form-group { margin-bottom: 20px; }
-  label { 
-    display: block; 
-    margin-bottom: 8px; 
-    color: #45f3ff;
-    font-weight: bold;
-    font-size: 14px;
-  }
-  .required-label::after { content: " *"; color: #ff0055; font-size: 16px; }
-  input[type="text"], input[type="tel"], input[type="file"], input[type="number"] { 
-    width: 100%; 
-    padding: 12px; 
-    box-sizing: border-box; 
-    background-color: rgba(11, 12, 16, 0.9);
-    border: 1px solid #1f2833;
-    border-bottom: 2px solid #45f3ff;
-    color: #fff;
-    border-radius: 4px;
-    font-size: 15px;
-    transition: 0.3s;
-  }
-  input[type="text"]:focus, input[type="tel"]:focus, input[type="number"]:focus {
-    outline: none;
-    border-bottom: 2px solid #ff0055;
-    box-shadow: 0 0 8px #ff0055;
-  }
-  input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-  input[type=number] { -moz-appearance: textfield; }
-  input[type="file"] { background: rgba(11, 12, 16, 0.9); border: 1px dashed #45f3ff; cursor: pointer; padding: 8px; }
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(at 10% 20%, rgba(0, 242, 254, 0.05) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, rgba(79, 172, 254, 0.05) 0px, transparent 50%);
+        }
 
-  .rules-checkbox-container {
-    background: rgba(20, 20, 20, 0.8);
-    border: 1px solid #ff0055;
-    border-radius: 8px;
-    padding: 15px;
-    margin-top: 30px;
-  }
-  .checkbox-group { display: flex; align-items: flex-start; margin-bottom: 15px; }
-  .checkbox-group:last-child { margin-bottom: 0; }
-  .checkbox-group input[type="checkbox"] {
-    margin-top: 4px;
-    margin-right: 12px;
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-    accent-color: #ff0055;
-    flex-shrink: 0;
-  }
-  .checkbox-text { color: #e0e0e0; font-size: 13px; line-height: 1.5; cursor: pointer; }
+        /* Top Header & Social Buttons */
+        .header-container {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
 
-  .btn-submit { 
-    width: 100%; padding: 15px; 
-    background: linear-gradient(45deg, #ff0055, #45f3ff);
-    color: #000; font-weight: bold; font-size: 18px;
-    text-transform: uppercase; border: none; border-radius: 4px; 
-    cursor: pointer; margin-top: 25px;
-    box-shadow: 0 0 15px rgba(69, 243, 255, 0.4); transition: 0.4s;
-  }
-  .btn-submit:hover { background: linear-gradient(45deg, #45f3ff, #ff0055); color: #fff; box-shadow: 0 0 25px #ff0055; }
-  ::placeholder { color: #66fcf1; opacity: 0.4; }
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--secondary-glow);
+            letter-spacing: 2px;
+        }
 
-  .contact-support-container {
-    text-align: center;
-    margin-top: 25px;
-    padding-top: 15px;
-    border-top: 1px dashed rgba(69, 243, 255, 0.3);
-  }
-  .contact-support-container p {
-    font-size: 14px;
-    color: #fff;
-    margin-bottom: 12px;
-    font-weight: 500;
-  }
-  .support-icons-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    align-items: center;
-  }
-  .support-icon-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    transition: transform 0.2s;
-    text-decoration: none;
-  }
-  .support-icon-btn:hover { transform: scale(1.15); }
-  .support-icon-btn svg { width: 42px; height: 42px; vertical-align: middle; }
-  .wa-svg { fill: #25D366; filter: drop-shadow(0 0 4px #25D366); }
-  .mail-svg { fill: #EA4335; filter: drop-shadow(0 0 4px #EA4335); }
+        .telegram-btn {
+            background: linear-gradient(135deg, #229ED9, #0088cc);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 0 15px rgba(0, 136, 204, 0.4);
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 13px;
+        }
 
-  .wa-modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0; top: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    align-items: center; justify-content: center;
-  }
-  .wa-modal-content {
-    background: #12161f;
-    border: 2px solid #25D366;
-    border-radius: 12px;
-    padding: 25px;
-    width: 85%; max-width: 340px;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
-    position: relative;
-    animation: fadeIn 0.3s ease-out;
-  }
-  @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-  .wa-modal-title { color: #25D366; font-size: 16px; font-weight: bold; margin-bottom: 15px; text-transform: uppercase; }
-  .wa-num-btn {
-    display: block;
-    background: #1f2833; color: #fff;
-    border: 1px solid #45f3ff;
-    padding: 12px; margin-bottom: 12px;
-    border-radius: 6px; text-decoration: none;
-    font-weight: bold; font-size: 14px; transition: 0.3s;
-  }
-  .wa-num-btn:hover { background: #25D366; color: #000; border-color: #25D366; box-shadow: 0 0 10px #25D366; }
-  .wa-close-btn {
-    background: #ff0055; color: #fff; border: none;
-    padding: 6px 15px; border-radius: 4px;
-    font-size: 12px; cursor: pointer; font-weight: bold; margin-top: 5px;
-  }
+        .telegram-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(0, 136, 204, 0.8);
+        }
 
-  .submit-loading {
-    display: none;
-    position: fixed;
-    z-index: 10000;
-    left: 0; top: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.8);
-    color: #45f3ff; font-size: 20px; font-weight: bold;
-    align-items: center; justify-content: center; flex-direction: column;
-  }
-  .spinner {
-    border: 4px solid rgba(255,255,255,0.1);
-    width: 50px; height: 50px; border-radius: 50%;
-    border-left-color: #ff0055;
-    animation: spin 1s linear infinite; margin-bottom: 15px;
-  }
-  @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        /* Main Wrapper */
+        .main-container {
+            width: 100%;
+            max-width: 800px;
+            padding: 0 20px 40px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
 
-  #pdf-template { display: none; background: #ffffff; color: #000000; padding: 30px; font-family: Arial, sans-serif; }
-  .pdf-header { text-align: center; border-bottom: 3px double #ff0055; padding-bottom: 15px; margin-bottom: 20px; }
-  .pdf-logo { max-width: 120px; border-radius: 50%; }
-  .pdf-title { color: #ff0055; font-size: 24px; margin: 10px 0 5px 0; text-transform: uppercase; font-weight: bold; }
-  .pdf-sub { color: #555; font-size: 14px; font-weight: bold; margin-bottom: 10px; }
-  .pdf-table { width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 20px; }
-  .pdf-table th, .pdf-table td { border: 1px solid #ddd; padding: 10px; text-align: left; }
-  .pdf-table th { background-color: #f2f2f2; color: #ff0055; }
-  .pdf-ss-img { max-width: 130px; max-height: 130px; border: 1px solid #ccc; border-radius: 4px; display: block; margin-top: 5px; }
-  .pdf-footer-support { text-align: center; margin-top: 25px; font-size: 11px; color: #555; border-top: 1px solid #ddd; padding-top: 10px; }
-</style>
+        /* Hero Title Block */
+        .hero-block {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-block h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            color: #fff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(to right, #fff, #81e6d9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-block p {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        /* Google Form Iframe Wrapper */
+        .form-card {
+            background: var(--card-bg);
+            border: 2px solid rgba(0, 242, 254, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 0 35px rgba(0, 242, 254, 0.1);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            position: relative;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-card:hover {
+            border-color: var(--glow-color);
+        }
+
+        /* Glowing Border Animation Top Line */
+        .form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--glow-color), var(--secondary-glow), transparent);
+            animation: gow-bar 3s linear infinite;
+        }
+
+        @keyframes gow-bar {
+            0% { background-position: -800px 0; }
+            100% { background-position: 800px 0; }
+        }
+
+        /* Google Form Integration styling */
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: 700px; /* Perfectly adjusted height for the Google form */
+            overflow: -webkit-paged-y;
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Modern Custom Scrollbar for Container */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 242, 254, 0.3);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--glow-color);
+        }
+
+        /* Footer Info & Support */
+        .footer-container {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            width: 100%;
+            margin-top: auto;
+            background: rgba(4, 7, 15, 0.9);
+        }
+
+        .footer-container a {
+            color: var(--glow-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer-container a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 600px) {
+            .header-container {
+                padding: 15px;
+            }
+            .logo-text {
+                font-size: 20px;
+            }
+            .telegram-btn {
+                padding: 8px 14px;
+                font-size: 11px;
+            }
+            .hero-block h1 {
+                font-size: 22px;
+            }
+            .iframe-container {
+                height: 750px; /* A bit more space for mobile views */
+            }
+        }
+    </style>
 </head>
 <body>
 
-<div id="loadingOverlay" class="submit-loading">
-  <div class="spinner"></div>
-  <div id="loadingText">Processing Images & Submitting... Please Wait</div>
-</div>
-
-<div class="container">
-  <div class="logo-container">
-    <img src="logo.png" alt="Tournament Logo">
-  </div>
-
-  <h2>DEVIL FREE FIRE TOURNAMENT REGISTRATION</h2>
-  <div class="presented-by">Presented by UNREAL DEVIL</div>
-
-  <div class="telegram-join-box">
-    <p>Join our Telegram for tournament payment & tournament schedule,<br><span>otherwise you will be disqualified.</span></p>
-    <a href="https://telegram.me/dfftpresentedbyunrealdevil" target="_blank" class="tg-logo-link">
-      <svg viewBox="0 0 24 24">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.99 8.22l-1.77 8.35c-.13.59-.48.74-.98.46l-2.71-2-1.31 1.26c-.14.14-.27.27-.42.27l.19-2.7 4.92-4.45c.21-.19-.05-.3-.33-.11L5.95 14.15l-2.62-.82c-.57-.18-.58-.57.12-.85l10.24-3.95c.47-.17.89.11.7.9l.6 2.79z"></path>
-      </svg>
-      <span class="tg-text-btn">👉 Click Here to Join Channel 👈</span>
-    </a>
-  </div>
-
-  <form id="regForm">
-    <div class="form-group">
-      <label for="teamName" class="required-label">Team Name:</label>
-      <input type="text" id="teamName" name="Team_Name" placeholder="Enter your team name" required>
+    <div class="header-container">
+        <div class="logo-text">DFFT ESPORTS</div>
+        <a href="https://t.me/+fT0qY634_k0zMGFl" target="_blank" class="telegram-btn">
+            <i class="fab fa-telegram-plane"></i> JOIN TELEGRAM
+        </a>
     </div>
 
-    <div class="form-group">
-      <label for="iglWhatsApp" class="required-label">IGL WhatsApp Number:</label>
-      <input type="tel" id="iglWhatsApp" name="IGL_WhatsApp" placeholder="Country code + number" required>
-    </div>
-
-    <div class="section-title">Player 1 (Leader / IGL)</div>
-    <div class="form-group"><label class="required-label">In-Game Name:</label><input type="text" id="p1Name" name="P1_IGN" required></div>
-    <div class="form-group"><label class="required-label">Game UID:</label><input type="number" inputmode="numeric" id="p1Uid" name="P1_UID" required></div>
-    <div class="form-group"><label class="required-label">Screenshot:</label><input type="file" id="p1SS" accept="image/*" required></div>
-
-    <div class="section-title">Player 2</div>
-    <div class="form-group"><label class="required-label">IGN:</label><input type="text" id="p2Name" name="P2_IGN" required></div>
-    <div class="form-group"><label class="required-label">UID:</label><input type="number" inputmode="numeric" id="p2Uid" name="P2_UID" required></div>
-    <div class="form-group"><label class="required-label">Screenshot:</label><input type="file" id="p2SS" accept="image/*" required></div>
-
-    <div class="section-title">Player 3</div>
-    <div class="form-group"><label class="required-label">IGN:</label><input type="text" id="p3Name" name="P3_IGN" required></div>
-    <div class="form-group"><label class="required-label">UID:</label><input type="number" inputmode="numeric" id="p3Uid" name="P3_UID" required></div>
-    <div class="form-group"><label class="required-label">Screenshot:</label><input type="file" id="p3SS" accept="image/*" required></div>
-
-    <div class="section-title">Player 4</div>
-    <div class="form-group"><label class="required-label">IGN:</label><input type="text" id="p4Name" name="P4_IGN" required></div>
-    <div class="form-group"><label class="required-label">UID:</label><input type="number" inputmode="numeric" id="p4Uid" name="P4_UID" required></div>
-    <div class="form-group"><label class="required-label">Screenshot:</label><input type="file" id="p4SS" accept="image/*" required></div>
-
-    <div class="section-title">Player 5 (Sub)</div>
-    <div class="form-group"><label>IGN:</label><input type="text" id="p5Name" name="P5_IGN"></div>
-    <div class="form-group"><label>UID:</label><input type="number" inputmode="numeric" id="p5Uid" name="P5_UID"></div>
-    <div class="form-group"><label>Screenshot:</label><input type="file" id="p5SS" accept="image/*"></div>
-
-    <div class="section-title">Player 6 (Sub)</div>
-    <div class="form-group"><label>IGN:</label><input type="text" id="p6Name" name="P6_IGN"></div>
-    <div class="form-group"><label>UID:</label><input type="number" inputmode="numeric" id="p6Uid" name="P6_UID"></div>
-    <div class="form-group"><label>Screenshot:</label><input type="file" id="p6SS" accept="image/*"></div>
-
-    <div class="rules-checkbox-container">
-      <div class="checkbox-group"><input type="checkbox" id="rule1" required><label for="rule1" class="checkbox-text">1. I will do the Tournament Entry Fees Rs.40 when I will be told to give, otherwise I can't join the tournament match.</label></div>
-      <div class="checkbox-group"><input type="checkbox" id="rule2" required><label for="rule2" class="checkbox-text">2. I and my Teammates will have the same UID during the match, otherwise Host will kick me out from the match.</label></div>
-      <div class="checkbox-group"><input type="checkbox" id="rule3" required><label for="rule3" class="checkbox-text">3. I hereby swear that I and my Teammates will not use any type of cheats/glitches.</label></div>
-      <div class="checkbox-group"><input type="checkbox" id="rule4" required><label for="rule4" class="checkbox-text">4. I hereby confirm that if we use hacks and win, we will be disqualified without refund.</label></div>
-    </div>
-
-    <button type="submit" class="btn-submit">Submit Registration</button>
-  </form>
-
-  <div class="contact-support-container">
-    <p>Facing any problem? Contact us</p>
-    <div class="support-icons-wrapper">
-      <button type="button" class="support-icon-btn" onclick="openWaModal()"><svg class="wa-svg" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.742.002-2.55-1-4.947-2.819-6.756-1.82-1.81-4.244-2.806-6.826-2.807-5.441 0-9.865 4.372-9.869 9.743-.002 1.748.476 3.454 1.385 4.965l-.973 3.553 3.639-.942zm11.233-6.68c-.114-.19-.418-.304-.874-.532-.456-.228-2.696-1.33-3.114-1.482-.418-.152-.722-.228-1.026.228-.304.456-1.178 1.482-1.444 1.786-.266.304-.532.342-.988.114-.456-.228-1.927-.71-3.67-2.264-1.356-1.21-2.272-2.705-2.538-3.16-.266-.456-.028-.703.2-.929.205-.205.456-.532.684-.798.228-.266.304-.456.456-.76.152-.304.076-.57-.038-.798-.114-.228-1.026-2.47-1.406-3.382-.369-.888-.744-.768-1.026-.782-.266-.014-.57-.014-.874-.014-.304 0-.798.114-1.216.57-.418.456-1.596 1.558-1.596 3.8 0 2.242 1.634 4.408 1.862 4.712.228.304 3.217 4.912 7.794 6.887 1.09.47 1.94.75 2.603.96.114.036.228.038.357.018.437-.066 1.344-.55 1.534-1.082.19-.532.19-1.064.133-1.158-.056-.096-.266-.152-.57-.304z"/></svg></button>
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=udjoy06@gmail.com&su=DFFT%20Registration" target="_blank" class="support-icon-btn"><svg class="mail-svg" viewBox="0 0 24 24"><path d="M24 4.5v15c0 .85-.65 1.5-1.5 1.5H21V7.39l-9 5.61-9-5.61V21H1.5C.65 21 0 20.35 0 19.5v-15c0-.85.65-1.5 1.5-1.5H3.4 l8.6 5.37 8.6-5.37h1.9c.85 0 1.5.65 1.5 1.5z"/></svg></a>
-    </div>
-  </div>
-</div>
-
-<div id="waModal" class="wa-modal">
-  <div class="wa-modal-content">
-    <div class="wa-modal-title">Select WhatsApp Support</div>
-    <a href="https://api.whatsapp.com/send?phone=919434020956" target="_blank" class="wa-num-btn">💬 Support 1 (+91 94340 20956)</a>
-    <a href="https://api.whatsapp.com/send?phone=916294979447" target="_blank" class="wa-num-btn">💬 Support 2 (+91 62949 79447)</a>
-    <button type="button" class="wa-close-btn" onclick="closeWaModal()">Close</button>
-  </div>
-</div>
-
-<div id="pdf-template">
-  <div class="pdf-header">
-    <img src="logo.png" class="pdf-logo">
-    <div class="pdf-title">Devil Free Fire Tournament</div>
-    <div class="pdf-sub">Presented by UNREAL DEVIL</div>
-  </div>
-  <table class="pdf-table">
-    <tr><td><strong>Team Name:</strong></td><td id="pdfTeam"></td></tr>
-    <tr><td><strong>WhatsApp Number:</strong></td><td id="pdfWhatsApp"></td></tr>
-  </table>
-  <table class="pdf-table">
-    <thead><tr><th>Player</th><th>In-Game Details</th><th>Screenshot</th></tr></thead>
-    <tbody id="pdfPlayersBody"></tbody>
-  </table>
-  <div class="pdf-footer-support">Contact: +919434020956 | Email: udjoy06@gmail.com</div>
-</div>
-
-<script>
-  function openWaModal() { document.getElementById('waModal').style.display = 'flex'; }
-  function closeWaModal() { document.getElementById('waModal').style.display = 'none'; }
-
-  // মোবাইল স্ক্রিনশটকে ছোট (Compress) করার ফাংশন যাতে গুগল স্ক্রিপ্ট ক্র্যাশ না করে
-  function compressImage(file) {
-    return new Promise((resolve) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = (e) => {
-        const img = new Image();
-        img.src = e.target.result;
-        img.onload = () => {
-          const canvas = document.createElement('canvas');
-          let width = img.width;
-          let height = img.height;
-          const max_size = 600; // সাইজ ৬০০ পিক্সেলের ভেতর রাখা
-          if (width > height) {
-            if (width > max_size) { height *= max_size / width; width = max_size; }
-          } else {
-            if (height > max_size) { width *= max_size / height; height = max_size; }
-          }
-          canvas.width = width;
-          canvas.height = height;
-          const ctx = canvas.getContext('2d');
-          ctx.drawImage(img, 0, 0, width, height);
-          canvas.toBlob((blob) => { resolve(blob); }, 'image/jpeg', 0.4); // কোয়ালিটি ৪০% এ নামানো
-        };
-      };
-    });
-  }
-
-  function readFileAsDataURL(blob) {
-    return new Promise((resolve) => {
-      const reader = new FileReader();
-      reader.onload = (e) => resolve(e.target.result);
-      reader.readAsDataURL(blob);
-    });
-  }
-
-  const form = document.getElementById('regForm');
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    // স্ক্রিনে লোডিং এনিমেশন চালু করা
-    document.getElementById('loadingOverlay').style.display = 'flex';
-    document.getElementById('loadingText').innerText = "Processing Squad Images... Please Wait";
-
-    // গুগলে ডেটা পাঠানোর জন্য FormData অবজেক্ট
-    const finalFormData = new FormData();
-    finalFormData.append('Team_Name', document.getElementById('teamName').value);
-    finalFormData.append('IGL_WhatsApp', document.getElementById('iglWhatsApp').value);
-
-    // পিডিএফ রিসিটের টেবিল রেডি করা
-    document.getElementById('pdfTeam').innerText = document.getElementById('teamName').value;
-    document.getElementById('pdfWhatsApp').innerText = document.getElementById('iglWhatsApp').value;
-    const tbody = document.getElementById('pdfPlayersBody');
-    tbody.innerHTML = '';
-
-    // লুপ চালিয়ে ৬ জন প্লেয়ারের ডেটা প্রসেস করা
-    for (let i = 1; i <= 6; i++) {
-      const nameEl = document.getElementById(`p${i}Name`);
-      const uidEl = document.getElementById(`p${i}Uid`);
-      const fileInput = document.getElementById(`p${i}SS`);
-
-      if (!nameEl || (i > 4 && !nameEl.value)) continue;
-
-      finalFormData.append(`P${i}_IGN`, nameEl.value);
-      finalFormData.append(`P${i}_UID`, uidEl.value);
-
-      let imgHtml = '<em>No Image</em>';
-
-      if (fileInput && fileInput.files && fileInput.files[0]) {
-        // ছবি কমপ্রেস করা
-        const compressedBlob = await compressImage(fileInput.files[0]);
-        // ড্রাইভে পাঠানোর জন্য ছবিকে টেক্সট ফরম্যাটে (Base64) নেওয়া
-        const base64Img = await readFileAsDataURL(compressedBlob);
+    <div class="main-container">
         
-        finalFormData.append(`P${i}_SS_Base64`, base64Img);
-        imgHtml = `<img src="${base64Img}" class="pdf-ss-img" />`;
-      }
+        <div class="hero-block">
+            <h1>Squad Registration Portal</h1>
+            <p>Fill out the official Google Form below to lock your slot. Double-check all UIDs & Screenshots before submitting.</p>
+        </div>
 
-      const role = i === 1 ? 'Player 1 (IGL)' : (i > 4 ? `Player ${i} (Sub)` : `Player ${i}`);
-      tbody.innerHTML += `<tr><td><strong>${role}</strong></td><td>Name: ${nameEl.value}<br>UID: ${uidEl.value}</td><td>${imgHtml}</td></tr>`;
-    }
+        <div class="form-card">
+            <div class="iframe-container">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfp6Sve6W_GfEAb7lDOfX36WwB38A-k-e-5m9iTveEksYwYEQ/viewform?embedded=true" 
+                        defer>
+                        Loading Registration Form...
+                </iframe>
+            </div>
+        </div>
 
-    document.getElementById('loadingText').innerText = "Uploading Data to Google Sheet & Drive...";
+    </div>
 
-    // 💡 আপনার দেওয়া গুগল ওয়েব অ্যাপের আসল URL
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzoAx1cBYfrIsFuKjIwC6t100d_XfBEywffwBK4lcq1v2RnxeX8yrGBDPzEaXKsioFo/exec";
+    <div class="footer-container">
+        <p>&copy; 2026 DFFT ESPORTS. All Rights Reserved.</p>
+        <p>Facing issues? Contact <a href="https://t.me/+fT0qY634_k0zMGFl" target="_blank">DFFT Support</a></p>
+    </div>
 
-    // গুগল এপিআই-তে ডেটা পোস্ট করা
-    fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        body: finalFormData
-    })
-    .then(res => res.json())
-    .then(resData => {
-        if(resData.result === "success") {
-            
-            // টেলিগ্রামে লাইভ মেসেজ পাঠানো
-            const token = "8322263777:AAHfGKOIetCs2VWstnUTn1Y8Lw2ygtPH7zo";
-            const chat_id = "@dfftpresentedbyunrealdevil";
-            const teamText = document.getElementById('teamName').value;
-            const waText = document.getElementById('iglWhatsApp').value;
-            const text = `🔥 *New Registration!* 🔥\n\n🏆 *Team:* ${teamText}\n📱 *WhatsApp:* ${waText}\n\n✅ Saved to Google Sheet & Images Uploaded to Drive!`;
-            
-            fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(text)}&parse_mode=Markdown`);
-
-            // প্লেয়ারের জন্য পিডিএফ রিসিট ডাউনলোড শুরু
-            const element = document.getElementById('pdf-template');
-            element.style.display = 'block'; 
-            
-            const opt = {
-              margin: 10,
-              filename: teamText + '_Receipt.pdf',
-              image: { type: 'jpeg', quality: 0.95 },
-              html2canvas: { scale: 2, useCORS: true },
-              jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-
-            html2pdf().set(opt).from(element).save().then(() => {
-                element.style.display = 'none'; 
-                document.getElementById('loadingOverlay').style.display = 'none';
-                alert('Registration Successful! Data Saved to Google Sheet.');
-                form.reset();
-                tbody.innerHTML = ''; 
-            });
-        } else {
-            document.getElementById('loadingOverlay').style.display = 'none';
-            alert('Google Server Error: ' + resData.error);
-        }
-    }).catch(err => {
-        // গুগল স্ক্রিপ্ট অনেক সময় ডাটা সাবমিট করলেও ব্রাউজারে CORS ইরর দেখায়, তাই ব্যাকআপ সাকসেস মেসেজ রাখা
-        const token = "8322263777:AAHfGKOIetCs2VWstnUTn1Y8Lw2ygtPH7zo";
-        const chat_id = "@dfftpresentedbyunrealdevil";
-        const teamText = document.getElementById('teamName').value;
-        const waText = document.getElementById('iglWhatsApp').value;
-        const text = `🔥 *New Registration!* 🔥\n\n🏆 *Team:* ${teamText}\n📱 *WhatsApp:* ${waText}\n\n✅ Saved to Google Sheet & Images Uploaded to Drive!`;
-        
-        fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(text)}&parse_mode=Markdown`);
-
-        const element = document.getElementById('pdf-template');
-        element.style.display = 'block'; 
-        const opt = {
-          margin: 10,
-          filename: teamText + '_Receipt.pdf',
-          image: { type: 'jpeg', quality: 0.95 },
-          html2canvas: { scale: 2, useCORS: true },
-          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        };
-
-        html2pdf().set(opt).from(element).save().then(() => {
-            element.style.display = 'none'; 
-            document.getElementById('loadingOverlay').style.display = 'none';
-            alert('Registration Successful! Check your Google Sheet for data.');
-            form.reset();
-            tbody.innerHTML = ''; 
-        });
-    });
-  });
-</script>
 </body>
 </html>
