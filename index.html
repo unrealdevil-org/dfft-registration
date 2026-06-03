@@ -12,9 +12,11 @@
             --glow-color: #00f2fe;
             --secondary-glow: #4facfe;
             --bg-color: #060913;
-            --card-bg: rgba(10, 15, 30, 0.8);
+            --card-bg: rgba(10, 15, 30, 0.7);
+            --input-bg: rgba(5, 10, 25, 0.9);
             --text-color: #ffffff;
             --text-muted: #a0aec0;
+            --neon-green: #39ff14;
         }
 
         * {
@@ -37,7 +39,6 @@
                 radial-gradient(at 90% 80%, rgba(79, 172, 254, 0.05) 0px, transparent 50%);
         }
 
-        /* Top Header & Social Buttons */
         .header-container {
             width: 100%;
             max-width: 800px;
@@ -50,61 +51,77 @@
 
         .logo-text {
             font-family: 'Orbitron', sans-serif;
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 700;
             color: #fff;
             text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--secondary-glow);
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 10px;
         }
 
         .telegram-btn {
             background: linear-gradient(135deg, #229ED9, #0088cc);
             color: white;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             box-shadow: 0 0 15px rgba(0, 136, 204, 0.4);
             transition: all 0.3s ease;
             font-family: 'Orbitron', sans-serif;
-            font-size: 13px;
+            font-size: 11px;
         }
 
-        .telegram-btn:hover {
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366, #075E54);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 11px;
+        }
+
+        .telegram-btn:hover, .whatsapp-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(0, 136, 204, 0.8);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
         }
 
-        /* Main Wrapper */
         .main-container {
             width: 100%;
             max-width: 800px;
             padding: 0 20px 40px 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
         }
 
-        /* Hero Title Block */
         .hero-block {
             text-align: center;
-            padding: 30px 20px;
+            padding: 25px;
             background: var(--card-bg);
             border: 1px solid rgba(0, 242, 254, 0.2);
             border-radius: 16px;
             box-shadow: 0 0 30px rgba(0, 242, 254, 0.05);
             backdrop-filter: blur(10px);
+            margin-bottom: 25px;
         }
 
         .hero-block h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 28px;
+            font-size: 26px;
             color: #fff;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 1px;
             background: linear-gradient(to right, #fff, #81e6d9);
@@ -112,77 +129,149 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .hero-block p {
-            color: var(--text-muted);
-            font-size: 16px;
-        }
-
-        /* Google Form Iframe Wrapper */
-        .form-card {
+        .registration-form {
             background: var(--card-bg);
-            border: 2px solid rgba(0, 242, 254, 0.2);
+            border: 2px solid rgba(0, 242, 254, 0.15);
             border-radius: 20px;
-            box-shadow: 0 0 35px rgba(0, 242, 254, 0.1);
+            padding: 30px;
+            box-shadow: 0 0 35px rgba(0, 242, 254, 0.08);
             backdrop-filter: blur(10px);
-            overflow: hidden;
-            position: relative;
-            transition: border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
         }
 
-        .form-card:hover {
+        .form-section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            color: var(--glow-color);
+            border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+            padding-bottom: 6px;
+            margin-top: 10px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-group label {
+            font-size: 15px;
+            font-weight: 500;
+            color: #e2e8f0;
+            letter-spacing: 0.5px;
+        }
+
+        .input-group input[type="text"],
+        .input-group input[type="number"] {
+            background: var(--input-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 16px;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            font-family: 'Rajdhani', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
             border-color: var(--glow-color);
+            box-shadow: 0 0 12px rgba(0, 242, 254, 0.3);
         }
 
-        /* Glowing Border Animation Top Line */
-        .form-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, var(--glow-color), var(--secondary-glow), transparent);
-            animation: gow-bar 3s linear infinite;
+        .player-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 15px;
+            align-items: flex-end;
         }
 
-        @keyframes gow-bar {
-            0% { background-position: -800px 0; }
-            100% { background-position: 800px 0; }
+        .upload-link-btn {
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px dashed var(--glow-color);
+            color: var(--glow-color);
+            padding: 11px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        /* Google Form Integration styling */
-        .iframe-container {
-            position: relative;
-            width: 100%;
-            height: 800px; /* Perfectly adjusted height for the registration form fields */
-            overflow: -webkit-paged-y;
-        }
-
-        .iframe-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Modern Custom Scrollbar for Container */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-color);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: rgba(0, 242, 254, 0.3);
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
+        .upload-link-btn:hover {
             background: var(--glow-color);
+            color: #000;
+            box-shadow: 0 0 15px var(--glow-color);
+            border-style: solid;
         }
 
-        /* Footer Info & Support */
+        .rules-container {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .rule-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .rule-item input[type="checkbox"] {
+            margin-top: 4px;
+            accent-color: var(--glow-color);
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .rule-item span {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .rule-item input[type="checkbox"]:checked + span {
+            color: #fff;
+        }
+
+        .submit-btn {
+            background: linear-gradient(90deg, var(--secondary-glow), var(--glow-color));
+            color: #000;
+            border: none;
+            padding: 15px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px var(--glow-color);
+        }
+
         .footer-container {
             text-align: center;
             padding: 20px;
@@ -192,6 +281,9 @@
             width: 100%;
             margin-top: auto;
             background: rgba(4, 7, 15, 0.9);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
         }
 
         .footer-container a {
@@ -200,27 +292,21 @@
             font-weight: bold;
         }
 
-        .footer-container a:hover {
-            text-decoration: underline;
-        }
-
-        /* Mobile Optimization */
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
             .header-container {
-                padding: 15px;
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
             }
-            .logo-text {
-                font-size: 20px;
+            .player-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+                padding-bottom: 15px;
             }
-            .telegram-btn {
-                padding: 8px 14px;
-                font-size: 11px;
-            }
-            .hero-block h1 {
-                font-size: 22px;
-            }
-            .iframe-container {
-                height: 850px; /* Generous height for seamless scrolling on mobile */
+            .upload-link-btn {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -229,33 +315,170 @@
 
     <div class="header-container">
         <div class="logo-text">DFFT ESPORTS</div>
-        <a href="https://t.me/+fT0qY634_k0zMGFl" target="_blank" class="telegram-btn">
-            <i class="fab fa-telegram-plane"></i> JOIN TELEGRAM
-        </a>
+        <div class="social-buttons">
+            <a href="https://t.me/+fT0qY634_k0zMGFl" target="_blank" class="telegram-btn">
+                <i class="fab fa-telegram-plane"></i> TELEGRAM
+            </a>
+            <a href="https://chat.whatsapp.com/Gj3Hj7Xh8A72LKnz3Mpv9X" target="_blank" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> WHATSAPP
+            </a>
+        </div>
     </div>
 
     <div class="main-container">
-        
         <div class="hero-block">
             <h1>Squad Registration Portal</h1>
-            <p>Fill out the official Google Form below to lock your slot. Double-check all UIDs & Screenshots before submitting.</p>
+            <p>Enter team stats below. Use the portal action buttons to attach screenshots safely before submit.</p>
         </div>
 
-        <div class="form-card">
-            <div class="iframe-container">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfAEZeEM4hiKxer8TXR9mKUkQSHV21KA21aQiaTfJJDG28iaQ/viewform?embedded=true" 
-                        defer>
-                        Loading Registration Form...
-                </iframe>
+        <form class="registration-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfAEZeEM4hiKxer8TXR9mKUkQSHV21KA21aQiaTfJJDG28iaQ/formResponse" method="POST" id="dfftForm">
+            
+            <div class="form-section-title"><i class="fas fa-users"></i> Team Meta Details</div>
+            
+            <div class="input-group">
+                <label>Team Name *</label>
+                <input type="text" name="entry.1481105423" placeholder="Enter full team name" required>
             </div>
-        </div>
 
+            <div class="input-group">
+                <label>IGL WhatsApp Number *</label>
+                <input type="number" name="entry.454948792" placeholder="Enter active whatsapp number" required>
+            </div>
+
+            <div class="form-section-title"><i class="fas fa-user-shield"></i> Player 1 (Leader / IGL)</div>
+            <div class="player-row">
+                <div class="input-group">
+                    <label>In-Game Name (IGN) *</label>
+                    <input type="text" name="entry.604724217" placeholder="P1 IGN" required>
+                </div>
+                <div class="input-group">
+                    <label>Game UID *</label>
+                    <input type="text" name="entry.1017362795" placeholder="P1 UID" required>
+                </div>
+                <button type="button" class="upload-link-btn" onclick="openFormStorage()">
+                    <i class="fas fa-image"></i> SCREENSHOT *
+                </button>
+            </div>
+
+            <div class="form-section-title"><i class="fas fa-user"></i> Player 2</div>
+            <div class="player-row">
+                <div class="input-group">
+                    <label>In-Game Name (IGN) *</label>
+                    <input type="text" name="entry.1691236109" placeholder="P2 IGN" required>
+                </div>
+                <div class="input-group">
+                    <label>Game UID *</label>
+                    <input type="text" name="entry.839655787" placeholder="P2 UID" required>
+                </div>
+                <button type="button" class="upload-link-btn" onclick="openFormStorage()">
+                    <i class="fas fa-image"></i> SCREENSHOT *
+                </button>
+            </div>
+
+            <div class="form-section-title"><i class="fas fa-user"></i> Player 3</div>
+            <div class="player-row">
+                <div class="input-group">
+                    <label>In-Game Name (IGN) *</label>
+                    <input type="text" name="entry.2064971207" placeholder="P3 IGN" required>
+                </div>
+                <div class="input-group">
+                    <label>Game UID *</label>
+                    <input type="text" name="entry.1983053158" placeholder="P3 UID" required>
+                </div>
+                <button type="button" class="upload-link-btn" onclick="openFormStorage()">
+                    <i class="fas fa-image"></i> SCREENSHOT *
+                </button>
+            </div>
+
+            <div class="form-section-title"><i class="fas fa-user"></i> Player 4</div>
+            <div class="player-row">
+                <div class="input-group">
+                    <label>In-Game Name (IGN) *</label>
+                    <input type="text" name="entry.86477815" placeholder="P4 IGN" required>
+                </div>
+                <div class="input-group">
+                    <label>Game UID *</label>
+                    <input type="text" name="entry.154332467" placeholder="P4 UID" required>
+                </div>
+                <button type="button" class="upload-link-btn" onclick="openFormStorage()">
+                    <i class="fas fa-image"></i> SCREENSHOT *
+                </button>
+            </div>
+
+            <div class="form-section-title"><i class="fas fa-user-plus"></i> Player 5 (Substitute)</div>
+            <div class="player-row">
+                <div class="input-group">
+                    <label>In-Game Name (IGN)</label>
+                    <input type="text" name="entry.730248443" placeholder="P5 IGN (Optional)">
+                </div>
+                <div class="input-group">
+                    <label>Game UID</label>
+                    <input type="text" name="entry.595670868" placeholder="P5 UID (Optional)">
+                </div>
+                <button type="button" class="upload-link-btn" onclick="openFormStorage()">
+                    <i class="fas fa-image"></i> SCREENSHOT
+                </button>
+            </div>
+
+            <div class="form-section-title"><i class="fas fa-user-plus"></i> Player 6 (Substitute)</div>
+            <div class="player-row">
+                <div class="input-group">
+                    <label>In-Game Name (IGN)</label>
+                    <input type="text" name="entry.1804791338" placeholder="P6 IGN (Optional)">
+                </div>
+                <div class="input-group">
+                    <label>Game UID</label>
+                    <input type="text" name="entry.170685655" placeholder="P6 UID (Optional)">
+                </div>
+                <button type="button" class="upload-link-btn" onclick="openFormStorage()">
+                    <i class="fas fa-image"></i> SCREENSHOT
+                </button>
+            </div>
+
+            <div class="form-section-title"><i class="fas fa-gavel"></i> Tournament Regulations</div>
+            <div class="rules-container">
+                <label class="rule-item">
+                    <input type="checkbox" name="entry.286375003" value="Option 1" required>
+                    <span>I will pay the Tournament Entry Fees INR 50 per Squad when I will be told to give, otherwise I can't join the tournament match.</span>
+                </label>
+                <label class="rule-item">
+                    <input type="checkbox" name="entry.286375003" value="Option 2" required>
+                    <span>I and my Teammates will have the same UID during the match, otherwise Host will kick me out from the match.</span>
+                </label>
+                <label class="rule-item">
+                    <input type="checkbox" name="entry.286375003" value="Option 3" required>
+                    <span>I hereby swear that I and my Teammates will not use any type of cheats/glitches.</span>
+                </label>
+                <label class="rule-item">
+                    <input type="checkbox" name="entry.286375003" value="Option 4" required>
+                    <span>I hereby confirm that if we use hacks and win, we will be disqualified without refund and we can't appeal for it.</span>
+                </label>
+            </div>
+
+            <button type="submit" class="submit-btn">SUBMIT SQUAD</button>
+        </form>
     </div>
 
     <div class="footer-container">
         <p>&copy; 2026 DFFT ESPORTS. All Rights Reserved.</p>
-        <p>Facing issues? Contact <a href="https://t.me/+fT0qY634_k0zMGFl" target="_blank">DFFT Support</a></p>
+        <p>Facing issues? Contact <a href="https://t.me/+fT0qY634_k0zMGFl" target="_blank">DFFT Telegram Support</a> or Email us at <a href="mailto:dfftesports@gmail.com">dfftesports@gmail.com</a></p>
     </div>
 
+    <script>
+        function openFormStorage() {
+            const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfAEZeEM4hiKxer8TXR9mKUkQSHV21KA21aQiaTfJJDG28iaQ/viewform";
+            const width = 550;
+            const height = 650;
+            const left = (screen.width / 2) - (width / 2);
+            const top = (screen.height / 2) - (height / 2);
+            
+            alert("🔒 Secure File Vault Opening!\n\nদয়া করে পপ-আপে খুলে যাওয়া ফর্মে আপনার স্ক্রিনশটটি আপলোড করে দিন, তারপর মূল পোর্টালে এসে বাকি ফর্মটি ফিলাপ করে Submit করুন।");
+            window.open(formUrl, "GoogleFormStorage", `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`);
+        }
+
+        document.getElementById('dfftForm').addEventListener('submit', function() {
+            alert("🚀 Registration Data Dispatched Successfully!\n\nআপনার স্কোয়াডের টেক্সট ডেটা সরাসরি সফলভাবে সিস্টেমে লক হয়ে গেছে!");
+        });
+    </script>
 </body>
 </html>
