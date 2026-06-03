@@ -12,7 +12,7 @@
             --glow-color: #00f2fe;
             --secondary-glow: #4facfe;
             --bg-color: #060913;
-            --card-bg: rgba(10, 15, 30, 0.85); /* একটু গাড়ো করা হলো যাতে ব্যাকগ্রাউন্ডের ওপর লেখা স্পষ্ট হয় */
+            --card-bg: rgba(10, 15, 30, 0.85);
             --input-bg: rgba(5, 10, 25, 0.9);
             --text-color: #ffffff;
             --text-muted: #a0aec0;
@@ -34,7 +34,6 @@
             flex-direction: column;
             align-items: center;
             overflow-x: hidden;
-            /* 🔽 এখানে তোমার bg.webp সেট করা হয়েছে */
             background-image: url('bg.webp');
             background-size: cover;
             background-position: center;
@@ -52,12 +51,11 @@
             margin-top: 10px;
         }
 
-        /* 🔽 লোগো ইমেজের জন্য নতুন CSS স্টাইল */
         .site-logo {
-            height: 60px; /* তোমার প্রয়োজন মতো সাইজ ছোট-বড় করতে পারো */
+            height: 60px;
             width: auto;
             object-fit: contain;
-            filter: drop-shadow(0 0 8px var(--glow-color)); /* লোগোর চারপাশে হালকা নিয়ন গ্লো দেবে */
+            filter: drop-shadow(0 0 8px var(--glow-color));
         }
 
         .telegram-btn {
@@ -192,7 +190,6 @@
         .input-group input[type="text"],
         .input-group input[type="number"],
         .input-group input[type="tel"],
-        .input-group select,
         .input-group textarea {
             background: var(--input-bg);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -204,18 +201,12 @@
             transition: all 0.3s ease;
         }
 
-        .input-group select option {
-            background: #0b0f19;
-            color: #fff;
-        }
-
         .input-group textarea {
             resize: vertical;
             min-height: 90px;
         }
 
         .input-group input:focus,
-        .input-group select:focus,
         .input-group textarea:focus {
             outline: none;
             border-color: var(--glow-color);
@@ -348,118 +339,72 @@
             
             <div class="input-group">
                 <label>Team Name *</label>
-                <input type="text" name="entry.1481105423" placeholder="Enter full team name" required>
+                <input type="text" name="entry.000" placeholder="Enter full team name" required>
             </div>
 
             <div class="input-group">
-                <label>IGL Address Line * (Max 1000 words)</label>
-                <textarea name="entry.1691157121" maxlength="5000" placeholder="Enter complete home address metrics..." required></textarea>
-                <span class="char-count">Maximum 1000 words metrics window</span>
+                <label>IGL WhatsApp Number *</label>
+                <input type="number" name="entry.111" placeholder="Enter active WhatsApp number" required>
+            </div>
+
+            <div class="input-group">
+                <label>IGL Address Line *</label>
+                <textarea name="entry.222" placeholder="Enter complete home address metrics..." required></textarea>
             </div>
 
             <div class="form-grid-2">
                 <div class="input-group">
                     <label>Village / Town / City *</label>
-                    <input type="text" name="entry.668798934" placeholder="Enter Village/Town/City" required>
+                    <input type="text" name="entry.333" placeholder="Enter Village/Town/City" required>
                 </div>
                 <div class="input-group">
                     <label>Post Office *</label>
-                    <input type="text" name="entry.1989078652" placeholder="Enter Post Office" required>
+                    <input type="text" name="entry.444" placeholder="Enter Post Office" required>
                 </div>
             </div>
 
             <div class="form-grid-2">
                 <div class="input-group">
                     <label>Police Station *</label>
-                    <input type="text" name="entry.457813589" placeholder="Enter Police Station" required>
+                    <input type="text" name="entry.555" placeholder="Enter Police Station" required>
                 </div>
                 <div class="input-group">
                     <label>Block *</label>
-                    <input type="text" name="entry.254131568" placeholder="Enter Block name" required>
+                    <input type="text" name="entry.666" placeholder="Enter Block name" required>
                 </div>
             </div>
 
             <div class="form-grid-2">
                 <div class="input-group">
                     <label>District *</label>
-                    <input type="text" name="entry.65215769" placeholder="Enter District" required>
+                    <input type="text" name="entry.777" placeholder="Enter District" required>
                 </div>
                 <div class="input-group">
                     <label>Pincode *</label>
-                    <input type="tel" name="entry.589146342" pattern="[0-9]*" placeholder="Enter Pincode" required>
+                    <input type="tel" name="entry.888" pattern="[0-9]*" placeholder="Enter Pincode" required>
                 </div>
             </div>
 
             <div class="form-grid-2">
                 <div class="input-group">
-                    <label>Country *</label>
-                    <select name="entry.856942173" required>
-                        <option value="India">India</option>
-                    </select>
+                    <label>State *</label>
+                    <input type="text" name="entry.999" placeholder="Enter State" required>
                 </div>
                 <div class="input-group">
-                    <label>State *</label>
-                    <select name="entry.1458920155" required>
-                        <option value="" disabled selected>Select your State</option>
-                        <option value="Andhra Pradesh">Andhra Pradesh</option>
-                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                        <option value="Assam">Assam</option>
-                        <option value="Bihar">Bihar</option>
-                        <option value="Chhattisgarh">Chhattisgarh</option>
-                        <option value="Goa">Goa</option>
-                        <option value="Gujarat">Gujarat</option>
-                        <option value="Haryana">Haryana</option>
-                        <option value="Himachal Pradesh">Himachal Pradesh</option>
-                        <option value="Jharkhand">Jharkhand</option>
-                        <option value="Karnataka">Karnataka</option>
-                        <option value="Kerala">Kerala</option>
-                        <option value="Madhya Pradesh">Madhya Pradesh</option>
-                        <option value="Maharashtra">Maharashtra</option>
-                        <option value="Manipur">Manipur</option>
-                        <option value="Meghalaya">Meghalaya</option>
-                        <option value="Mizoram">Mizoram</option>
-                        <option value="Nagaland">Nagaland</option>
-                        <option value="Odisha">Odisha</option>
-                        <option value="Punjab">Punjab</option>
-                        <option value="Rajasthan">Rajasthan</option>
-                        <option value="Sikkim">Sikkim</option>
-                        <option value="Tamil Nadu">Tamil Nadu</option>
-                        <option value="Telangana">Telangana</option>
-                        <option value="Tripura">Tripura</option>
-                        <option value="Uttar Pradesh">Uttar Pradesh</option>
-                        <option value="Uttarakhand">Uttarakhand</option>
-                        <option value="West Bengal">West Bengal</option>
-                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                        <option value="Chandigarh">Chandigarh</option>
-                        <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
-                        <option value="Delhi">Delhi</option>
-                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                        <option value="Ladakh">Ladakh</option>
-                        <option value="Lakshadweep">Lakshadweep</option>
-                        <option value="Puducherry">Puducherry</option>
-                    </select>
+                    <label>Country *</label>
+                    <input type="text" name="entry.0000" placeholder="Enter Country" required>
                 </div>
-            </div>
-
-            <div class="input-group">
-                <label>IGL WhatsApp Number *</label>
-                <input type="number" name="entry.454948792" placeholder="Enter active WhatsApp link line" required>
-            </div>
-
-            <div class="input-group">
-                <label>Entry Fee Payment System</label>
-                <input type="text" value="Join telegram channel: https://t.me/dfftpresentedbyunrealdevil" readonly style="background: rgba(0, 242, 254, 0.03); border-color: rgba(0,242,254,0.2); color: #fff; font-weight: bold; cursor: not-allowed;">
             </div>
 
             <div class="form-section-title"><i class="fas fa-user-shield"></i> Player 1 (Leader / IGL)</div>
             <div class="form-grid-2">
                 <div class="input-group">
                     <label>In-Game Name (IGN) *</label>
-                    <input type="text" name="entry.1017362795" placeholder="P1 IGN" required>
+                    <input type="text" name="entry.1111" placeholder="P1 IGN" required>
                 </div>
                 <div class="input-group">
                     <label>Game UID *</label>
-                    <input type="text" name="entry.839655787" placeholder="P1 UID" required>
+                    <input type="text" name="entry.2222" placeholder="P1 UID" required>
                 </div>
             </div>
 
@@ -467,11 +412,11 @@
             <div class="form-grid-2">
                 <div class="input-group">
                     <label>In-Game Name (IGN) *</label>
-                    <input type="text" name="entry.2064971207" placeholder="P2 IGN" required>
+                    <input type="text" name="entry.3333" placeholder="P2 IGN" required>
                 </div>
                 <div class="input-group">
                     <label>Game UID *</label>
-                    <input type="text" name="entry.1983053158" placeholder="P2 UID" required>
+                    <input type="text" name="entry.4444" placeholder="P2 UID" required>
                 </div>
             </div>
 
@@ -479,11 +424,11 @@
             <div class="form-grid-2">
                 <div class="input-group">
                     <label>In-Game Name (IGN) *</label>
-                    <input type="text" name="entry.86477815" placeholder="P3 IGN" required>
+                    <input type="text" name="entry.5555" placeholder="P3 IGN" required>
                 </div>
                 <div class="input-group">
                     <label>Game UID *</label>
-                    <input type="text" name="entry.154332467" placeholder="P3 UID" required>
+                    <input type="text" name="entry.6666" placeholder="P3 UID" required>
                 </div>
             </div>
 
@@ -491,11 +436,11 @@
             <div class="form-grid-2">
                 <div class="input-group">
                     <label>In-Game Name (IGN) *</label>
-                    <input type="text" name="entry.730248443" placeholder="P4 IGN" required>
+                    <input type="text" name="entry.7777" placeholder="P4 IGN" required>
                 </div>
                 <div class="input-group">
                     <label>Game UID *</label>
-                    <input type="text" name="entry.595670868" placeholder="P4 UID" required>
+                    <input type="text" name="entry.8888" placeholder="P4 UID" required>
                 </div>
             </div>
 
@@ -503,11 +448,11 @@
             <div class="form-grid-2">
                 <div class="input-group">
                     <label>In-Game Name (IGN)</label>
-                    <input type="text" name="entry.1804791338" placeholder="P5 IGN (Optional)">
+                    <input type="text" name="entry.9999" placeholder="P5 IGN (Optional)">
                 </div>
                 <div class="input-group">
                     <label>Game UID</label>
-                    <input type="text" name="entry.170685655" placeholder="P5 UID (Optional)">
+                    <input type="text" name="entry.00000" placeholder="P5 UID (Optional)">
                 </div>
             </div>
 
@@ -526,19 +471,19 @@
             <div class="form-section-title"><i class="fas fa-gavel"></i> Tournament Regulations</div>
             <div class="rules-container">
                 <label class="rule-item">
-                    <input type="checkbox" name="entry.286375003" value="Option 1" required>
+                    <input type="checkbox" required>
                     <span>I will pay the Tournament Entry Fees INR 50 per Squad when I will be told to give, otherwise I can't join the tournament match.</span>
                 </label>
                 <label class="rule-item">
-                    <input type="checkbox" name="entry.286375003" value="Option 2" required>
+                    <input type="checkbox" required>
                     <span>I and my Teammates will have the same UID during the match, otherwise Host will kick me out from the match.</span>
                 </label>
                 <label class="rule-item">
-                    <input type="checkbox" name="entry.286375003" value="Option 3" required>
+                    <input type="checkbox" required>
                     <span>I hereby swear that I and my Teammates will not use any type of cheats/glitches.</span>
                 </label>
                 <label class="rule-item">
-                    <input type="checkbox" name="entry.286375003" value="Option 4" required>
+                    <input type="checkbox" required>
                     <span>I hereby confirm that if we use hacks and win, we will be disqualified without refund and we can't appeal for it.</span>
                 </label>
             </div>
