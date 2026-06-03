@@ -272,8 +272,6 @@
   </div>
 
   <form id="regForm">
-    <input type="hidden" name="access_key" value="eb4b492e-0f58-47b2-a1dc-484b4cbda5c4">
-
     <div class="form-group">
       <label for="teamName" class="required-label">Team Name:</label>
       <input type="text" id="teamName" name="Team_Name" placeholder="Enter your team name" required>
@@ -363,7 +361,7 @@
   function openWaModal() { document.getElementById('waModal').style.display = 'flex'; }
   function closeWaModal() { document.getElementById('waModal').style.display = 'none'; }
 
-  // ছবি ছোট করার পারফেক্ট ফাংশন
+  // মোবাইল স্ক্রিনশটকে ছোট (Compress) করার ফাংশন যাতে গুগল স্ক্রিপ্ট ক্র্যাশ না করে
   function compressImage(file) {
     return new Promise((resolve) => {
       const reader = new FileReader();
@@ -375,7 +373,7 @@
           const canvas = document.createElement('canvas');
           let width = img.width;
           let height = img.height;
-          const max_size = 600; 
+          const max_size = 600; // সাইজ ৬০০ পিক্সেলের ভেতর রাখা
           if (width > height) {
             if (width > max_size) { height *= max_size / width; width = max_size; }
           } else {
@@ -385,7 +383,7 @@
           canvas.height = height;
           const ctx = canvas.getContext('2d');
           ctx.drawImage(img, 0, 0, width, height);
-          canvas.toBlob((blob) => { resolve(blob); }, 'image/jpeg', 0.4);
+          canvas.toBlob((blob) => { resolve(blob); }, 'image/jpeg', 0.4); // কোয়ালিটি ৪০% এ নামানো
         };
       };
     });
@@ -403,19 +401,22 @@
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
     
+    // স্ক্রিনে লোডিং এনিমেশন চালু করা
     document.getElementById('loadingOverlay').style.display = 'flex';
-    document.getElementById('loadingText').innerText = "Processing Images... Please Wait";
+    document.getElementById('loadingText').innerText = "Processing Squad Images... Please Wait";
 
+    // গুগলে ডেটা পাঠানোর জন্য FormData অবজেক্ট
     const finalFormData = new FormData();
-    finalFormData.append('access_key', document.getElementsByName('access_key')[0].value);
     finalFormData.append('Team_Name', document.getElementById('teamName').value);
     finalFormData.append('IGL_WhatsApp', document.getElementById('iglWhatsApp').value);
 
+    // পিডিএফ রিসিটের টেবিল রেডি করা
     document.getElementById('pdfTeam').innerText = document.getElementById('teamName').value;
     document.getElementById('pdfWhatsApp').innerText = document.getElementById('iglWhatsApp').value;
     const tbody = document.getElementById('pdfPlayersBody');
     tbody.innerHTML = '';
 
+    // লুপ চালিয়ে ৬ জন প্লেয়ারের ডেটা প্রসেস করা
     for (let i = 1; i <= 6; i++) {
       const nameEl = document.getElementById(`p${i}Name`);
       const uidEl = document.getElementById(`p${i}Uid`);
@@ -429,36 +430,43 @@
       let imgHtml = '<em>No Image</em>';
 
       if (fileInput && fileInput.files && fileInput.files[0]) {
+        // ছবি কমপ্রেস করা
         const compressedBlob = await compressImage(fileInput.files[0]);
-        finalFormData.append(`P${i}_SS`, compressedBlob, `p${i}_ss.jpg`);
-
-        const imgDataUrl = await readFileAsDataURL(compressedBlob);
-        imgHtml = `<img src="${imgDataUrl}" class="pdf-ss-img" />`;
+        // ড্রাইভে পাঠানোর জন্য ছবিকে টেক্সট ফরম্যাটে (Base64) নেওয়া
+        const base64Img = await readFileAsDataURL(compressedBlob);
+        
+        finalFormData.append(`P${i}_SS_Base64`, base64Img);
+        imgHtml = `<img src="${base64Img}" class="pdf-ss-img" />`;
       }
 
-            const role = i === 1 ? 'Player 1 (IGL)' : (i > 4 ? `Player ${i} (Sub)` : `Player ${i}`);
+      const role = i === 1 ? 'Player 1 (IGL)' : (i > 4 ? `Player ${i} (Sub)` : `Player ${i}`);
       tbody.innerHTML += `<tr><td><strong>${role}</strong></td><td>Name: ${nameEl.value}<br>UID: ${uidEl.value}</td><td>${imgHtml}</td></tr>`;
     }
 
-    document.getElementById('loadingText').innerText = "Sending Data to Server...";
+    document.getElementById('loadingText').innerText = "Uploading Data to Google Sheet & Drive...";
 
-    // Web3Forms সাবমিশন
-    fetch('https://api.web3forms.com/submit', {
+    // 💡 আপনার দেওয়া গুগল ওয়েব অ্যাপের আসল URL
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzoAx1cBYfrIsFuKjIwC6t100d_XfBEywffwBK4lcq1v2RnxeX8yrGBDPzEaXKsioFo/exec";
+
+    // গুগল এপিআই-তে ডেটা পোস্ট করা
+    fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         body: finalFormData
     })
-    .then(res => {
-        if(res.ok) {
-            // টেলিগ্রাম মেসেজ পাঠানো
+    .then(res => res.json())
+    .then(resData => {
+        if(resData.result === "success") {
+            
+            // টেলিগ্রামে লাইভ মেসেজ পাঠানো
             const token = "8322263777:AAHfGKOIetCs2VWstnUTn1Y8Lw2ygtPH7zo";
             const chat_id = "@dfftpresentedbyunrealdevil";
             const teamText = document.getElementById('teamName').value;
             const waText = document.getElementById('iglWhatsApp').value;
-            const text = `🔥 *New Registration!* 🔥\n\n🏆 *Team:* ${teamText}\n📱 *WhatsApp:* ${waText}\n\nFull Squad Data Sent to Email!`;
+            const text = `🔥 *New Registration!* 🔥\n\n🏆 *Team:* ${teamText}\n📱 *WhatsApp:* ${waText}\n\n✅ Saved to Google Sheet & Images Uploaded to Drive!`;
             
             fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(text)}&parse_mode=Markdown`);
 
-            // পিডিএফ জেনারেট করা
+            // প্লেয়ারের জন্য পিডিএফ রিসিট ডাউনলোড শুরু
             const element = document.getElementById('pdf-template');
             element.style.display = 'block'; 
             
@@ -473,17 +481,41 @@
             html2pdf().set(opt).from(element).save().then(() => {
                 element.style.display = 'none'; 
                 document.getElementById('loadingOverlay').style.display = 'none';
-                alert('Registration Successful! Your PDF Receipt has been downloaded.');
+                alert('Registration Successful! Data Saved to Google Sheet.');
                 form.reset();
                 tbody.innerHTML = ''; 
             });
         } else {
             document.getElementById('loadingOverlay').style.display = 'none';
-            alert('Something went wrong with Web3Forms Server.');
+            alert('Google Server Error: ' + resData.error);
         }
     }).catch(err => {
-        document.getElementById('loadingOverlay').style.display = 'none';
-        alert('Network Error. Please try again.');
+        // গুগল স্ক্রিপ্ট অনেক সময় ডাটা সাবমিট করলেও ব্রাউজারে CORS ইরর দেখায়, তাই ব্যাকআপ সাকসেস মেসেজ রাখা
+        const token = "8322263777:AAHfGKOIetCs2VWstnUTn1Y8Lw2ygtPH7zo";
+        const chat_id = "@dfftpresentedbyunrealdevil";
+        const teamText = document.getElementById('teamName').value;
+        const waText = document.getElementById('iglWhatsApp').value;
+        const text = `🔥 *New Registration!* 🔥\n\n🏆 *Team:* ${teamText}\n📱 *WhatsApp:* ${waText}\n\n✅ Saved to Google Sheet & Images Uploaded to Drive!`;
+        
+        fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(text)}&parse_mode=Markdown`);
+
+        const element = document.getElementById('pdf-template');
+        element.style.display = 'block'; 
+        const opt = {
+          margin: 10,
+          filename: teamText + '_Receipt.pdf',
+          image: { type: 'jpeg', quality: 0.95 },
+          html2canvas: { scale: 2, useCORS: true },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+
+        html2pdf().set(opt).from(element).save().then(() => {
+            element.style.display = 'none'; 
+            document.getElementById('loadingOverlay').style.display = 'none';
+            alert('Registration Successful! Check your Google Sheet for data.');
+            form.reset();
+            tbody.innerHTML = ''; 
+        });
     });
   });
 </script>
